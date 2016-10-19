@@ -1,0 +1,44 @@
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 950M (ID=0x139a)
+    Vendor:   NVIDIA
+    VRAM:     1995 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Games\Préjugés\prejuges_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Games\Préjugés\prejuges_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Games\Préjugés\prejuges_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Games\Préjugés\prejuges_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Games\Préjugés\prejuges_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Games\Préjugés\prejuges_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Games\Préjugés\prejuges_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Games\Préjugés\prejuges_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.074 seconds
+Platform assembly: D:\Games\Préjugés\prejuges_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Games\Préjugés\prejuges_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on StartOptions
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+OnLevelWasLoaded was found on EventSystemChecker
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+desktop: 1360x768 48Hz; virtual: 1360x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.872888 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.668442 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 586.
+Total: 0.416888 ms (FindLiveObjects: 0.023999 ms CreateObjectMapping: 0.013777 ms MarkObjects: 0.373777 ms  DeleteObjects: 0.003999 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 22f8 -> priority: 1 

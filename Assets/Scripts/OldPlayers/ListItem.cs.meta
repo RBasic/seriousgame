@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c47b8eeadb9bde84695f211ac0c38e20
+labels:
+- Scroll
+- List
+- Recycle
+- Pool
+- Virtual
+- Reuse
+- Virtualize
+- Re-use
+- ScrollRect
+- UI
+- Infinite
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

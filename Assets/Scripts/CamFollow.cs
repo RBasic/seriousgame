@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class CamFollow : MonoBehaviour {
-    
     public Transform player;
-    // Use this for initialization
 
     // Update is called once per frame
     void Update () {

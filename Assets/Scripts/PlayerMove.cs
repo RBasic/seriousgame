@@ -42,7 +42,7 @@ public class PlayerMove : MonoBehaviour {
             timer = 0.0f;
         }
         timer += Time.deltaTime;
-        Debug.Log("timer = " + timer);
+        //Debug.Log("timer = " + timer);
         if(timer > idleTime)
         {
             anim.SetBool("wait", true);

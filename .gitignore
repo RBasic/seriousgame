@@ -17,6 +17,7 @@ ExportedObj/
 *.pidb
 *.booproj
 *.svd
+*.log
 
 
 # Unity3D generated meta files
@@ -28,4 +29,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/FMODStudioCache.asset
+fmod_editor.log
+Assets/FMODStudioCache.asset
 Assets/FMODStudioCache.asset

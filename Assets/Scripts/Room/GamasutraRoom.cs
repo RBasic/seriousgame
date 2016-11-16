@@ -8,8 +8,8 @@ public class GamasutraRoom : MonoBehaviour
     public int heigh;
     public int width;
     [SerializeField] BoxCollider2D colliderSupperpose;
-    private int x = 18;
-    private int y = 10;
+    private int x = 16;
+    private int y = 9;
 
 
     // doors to shown or not if the elements are next
@@ -83,7 +83,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorL.SetActive(false);
+                doorL.SetActive(false);
             }
 
             Vector3 originR = new Vector3(center.x - (x), center.y, center.z);
@@ -91,7 +91,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorR.SetActive(false);
+                doorR.SetActive(false);
             }
 
             Vector3 originT = new Vector3(center.x , center.y+(y), center.z);
@@ -99,7 +99,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorT.SetActive(false);
+                doorT.SetActive(false);
             }
 
             Vector3 originB = new Vector3(center.x , center.y-(y), center.z);
@@ -107,7 +107,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorB.SetActive(false);
+                doorB.SetActive(false);
             }
 
         }

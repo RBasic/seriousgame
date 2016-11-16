@@ -76,19 +76,34 @@ public class GamasutraRoom : MonoBehaviour
             
             Vector3 originL = new Vector3(center.x+(x),center.y,center.z);
             colliders = Physics2D.OverlapPointAll(originL);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorL.SetActive(false);
+            }
 
             Vector3 originR = new Vector3(center.x - (x), center.y, center.z);
             colliders = Physics2D.OverlapPointAll(originR);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorR.SetActive(false);
+            }
 
             Vector3 originT = new Vector3(center.x , center.y+(y), center.z);
             colliders = Physics2D.OverlapPointAll(originT);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorT.SetActive(false);
+            }
 
             Vector3 originB = new Vector3(center.x , center.y-(y), center.z);
             colliders = Physics2D.OverlapPointAll(originB);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+            }
 
         }
         // big square
@@ -209,7 +224,6 @@ public class GamasutraRoom : MonoBehaviour
         {
             Debug.Log(this + " " + "delete because of alone");
             lvlRooms.Remove(this.gameObject);
-            Destroy(this.gameObject);
         }
     }
 

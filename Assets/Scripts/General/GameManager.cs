@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,9 +36,9 @@ public class GameManager : MonoBehaviour
         player = new Player();
         SaveLoad.Load();
         setPlayer();
-
     }
 
+  
     // Update is called once per frame
     void Update()
     {

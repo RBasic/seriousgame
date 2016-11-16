@@ -3,12 +3,14 @@ using System.Collections.Generic;
 
 public class GamasutraRoom : MonoBehaviour
 {
+    private bool see = false;   // is the room already see by the player
 
     public int heigh;
     public int width;
     [SerializeField] BoxCollider2D colliderSupperpose;
     private int x = 18;
     private int y = 10;
+
 
     // doors to shown or not if the elements are next
     [Header("Doors simple wall")]
@@ -22,11 +24,13 @@ public class GamasutraRoom : MonoBehaviour
     public GameObject doorLB;
     public GameObject doorRT;
     public GameObject doorRB;
-    public GameObject DoorTL;
+    public GameObject doorTL;
     public GameObject doorTR;
     public GameObject doorBL;
     public GameObject doorBR;
 
+    [Header("MiniMap")]
+    [SerializeField] GameObject miniMap;
 
     Collider2D[] colliders;
 
@@ -103,6 +107,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
+                //doorB.SetActive(false);
             }
 
         }
@@ -113,42 +118,74 @@ public class GamasutraRoom : MonoBehaviour
             //Top Left
             Vector3 originTL = new Vector3(center.x - (x/2), center.y+(y)+(y/2), center.z);
             colliders = Physics2D.OverlapPointAll(originTL);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+               // doorTL.SetActive(false);
+            }
 
             //Top Right
             Vector3 originTR = new Vector3(center.x + (x / 2), center.y + (y) + (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originTR);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorTR.SetActive(false);
+            }
 
             //Right Top
             Vector3 originRT = new Vector3(center.x + x+(x / 2), center.y + (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originRT);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorRT.SetActive(false);
+            }
 
             //Right Bottom
             Vector3 originRB = new Vector3(center.x + x + (x / 2), center.y - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originRB);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+               // doorRB.SetActive(false);
+            }
 
             //Bottom Right
             Vector3 originBR = new Vector3(center.x + (x / 2), center.y - (y) - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originBR);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorRB.SetActive(false);
+            }
 
             //Bottom Left
             Vector3 originBL = new Vector3(center.x - (x / 2), center.y - (y) - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originBL);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorBL.SetActive(false);
+            }
 
             //Left Bottom
             Vector3 originLB = new Vector3(center.x - x - (x / 2), center.y - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originLB);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+               // doorLB.SetActive(false);
+            }
 
             //Left Top
             Vector3 originLT = new Vector3(center.x - x - (x / 2), center.y + (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originLT);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorLT.SetActive(false);
+            }
 
         }
         // rect H
@@ -157,32 +194,56 @@ public class GamasutraRoom : MonoBehaviour
             //Top Left
             Vector3 originTL = new Vector3(center.x - (x / 2), center.y + (y), center.z);
             colliders = Physics2D.OverlapPointAll(originTL);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorTL.SetActive(false);
+            }
 
             //Top Right
             Vector3 originTR = new Vector3(center.x + (x / 2), center.y + (y) , center.z);
             colliders = Physics2D.OverlapPointAll(originTR);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorTR.SetActive(false);
+            }
 
             //Right
             Vector3 originR = new Vector3(center.x + x + (x / 2), center.y, center.z);
             colliders = Physics2D.OverlapPointAll(originR);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorR.SetActive(false);
+            }
 
             //Bottom Right
             Vector3 originBR = new Vector3(center.x + (x / 2), center.y - (y), center.z);
             colliders = Physics2D.OverlapPointAll(originBR);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorBR.SetActive(false);
+            }
 
             //Bottom Left
             Vector3 originBL = new Vector3(center.x - (x / 2), center.y - (y) , center.z);
             colliders = Physics2D.OverlapPointAll(originBL);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorBL.SetActive(false);
+            }
 
             //Left
             Vector3 originL = new Vector3(center.x - x - (x / 2), center.y , center.z);
             colliders = Physics2D.OverlapPointAll(originL);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorL.SetActive(false);
+            }
 
         }
        // rect V
@@ -191,39 +252,65 @@ public class GamasutraRoom : MonoBehaviour
             //Top
             Vector3 originT = new Vector3(center.x , center.y + (y) + (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originT);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+               // doorT.SetActive(false);
+            }
 
             //Right Top
             Vector3 originRT = new Vector3(center.x  + (x ), center.y + (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originRT);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorRT.SetActive(false);
+            }
 
             //Right Bottom
             Vector3 originRB = new Vector3(center.x + (x ), center.y - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originRB);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                //doorRB.SetActive(false);
+            }
 
             //Bottom
             Vector3 originB = new Vector3(center.x, center.y -(y) - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originB);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+               // doorB.SetActive(false);
+            }
 
             //Left Bottom
             Vector3 originLB = new Vector3(center.x  - (x ), center.y - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originLB);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+               // doorLB.SetActive(false);
+            }
 
             //Left Top
             Vector3 originLT = new Vector3(center.x  - (x ), center.y + (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originLT);
-            if (colliders.Length > 0) cpt++;
+            if (colliders.Length > 0)
+            {
+                cpt++;
+               // doorLT.SetActive(false);
+            }
 
         }
 
         if (cpt == 0)
         {
             Debug.Log(this + " " + "delete because of alone");
+            GameObject go = this.gameObject;
             lvlRooms.Remove(this.gameObject);
+            Destroy(go);
         }
     }
 
@@ -461,4 +548,14 @@ public class GamasutraRoom : MonoBehaviour
         return heigh;
     }
 
+    public bool getSee()
+    {
+        return see;
+    }
+
+    public void setSee(bool state)
+    {
+        see = state;
+        miniMap.SetActive(see); // if the player see the room display it in the minimap
+    }
 }

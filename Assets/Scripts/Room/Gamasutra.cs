@@ -22,8 +22,15 @@ public class Gamasutra : MonoBehaviour
     private bool startAgencement = false;
     private float percentRoom = 0.8f;
 
+    [Header("Load")]
+    [SerializeField]
+    private GameObject loadingScreen;   // prefab of the corridor
+
+
     void initialize()
     {
+        //loadingScreen.SetActive(true);
+
         while (lvlRooms.Count != 0)
         {
             GameObject go = lvlRooms[lvlRooms.Count - 1];
@@ -45,7 +52,8 @@ public class Gamasutra : MonoBehaviour
     // Use this for initialization
     void Start ()
 	{
-	    createLevel();
+        //loadingScreen.SetActive(true);
+        createLevel();
     }
 
     void createLevel()
@@ -93,6 +101,8 @@ public class Gamasutra : MonoBehaviour
                 alignRooms();
                 align = true;
                 checkAttainable();
+                loadingScreen.SetActive(false);
+                
             }
         }
 

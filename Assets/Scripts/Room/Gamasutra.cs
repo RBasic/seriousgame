@@ -12,8 +12,8 @@ public class Gamasutra : MonoBehaviour
     List<Vector3> lastPos = new List<Vector3>();    // to check if the elements are always in movement
 
     public int nbRoom;
-    private float tileSizeX = 18f;
-    private float tileSizeY = 10f;
+    private float tileSizeX = 16f;
+    private float tileSizeY = 9f;
 
     private List<GameObject> listBufferHorizontal;  // to replace the elements on a "grid"
     private List<GameObject> listBufferVertical;    // to replace the elements on a "grid"

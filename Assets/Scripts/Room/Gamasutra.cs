@@ -6,6 +6,7 @@ using UnityEngine.Assertions.Comparers;
 public class Gamasutra : MonoBehaviour
 {
     [SerializeField] private GameObject corridor;   // prefab of the corridor
+    [SerializeField] private GameObject spawnPlayerInCorridor;   // prefab of the corridor
 
     public List<GameObject> rooms;  // type of rooms possibles
     List<GameObject> lvlRooms = new List<GameObject>();
@@ -206,6 +207,14 @@ public class Gamasutra : MonoBehaviour
                 roomAfter[i].GetComponent<GamasutraRoom>().activeBorderCollider();
             }
             c.GetComponent<BoxCollider2D>().enabled = false;
+            if (GameManager.instance != null)
+            {
+                GameObject player = Instantiate(GameManager.instance.getPlayerGameObject());
+                player.transform.SetParent(c.transform);
+                player.transform.localPosition = spawnPlayerInCorridor.transform.localPosition;
+                GameObject.Find("Main Camera").SetActive(true);
+                GameObject.Find("Main Camera").GetComponent<CamFollow>().player = player.transform;
+            }
         }
     }
 

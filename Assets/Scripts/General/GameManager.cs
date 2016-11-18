@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    Player player;
+    [SerializeField] GameObject player;
+    private Player p;
 
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         _instance = this;
+        p = player.GetComponent<Player>();
     }
 
     public static GameManager instance
@@ -33,7 +35,6 @@ public class GameManager : MonoBehaviour
     */
     public void launchGame(){
         
-        player = new Player();
         SaveLoad.Load();
         setPlayer();
     }
@@ -42,11 +43,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.D))
         {
-            player.dead();
+            p.dead();
         }
-      
+      */
     
     }
 
@@ -55,9 +57,9 @@ public class GameManager : MonoBehaviour
     */
     public void setPlayer()
     {
-        player.randomPlayer();
-        if(GameObject.Find("panelShowPerso")!=null)
-            ScreenShots.instance.TakeHiResShot(GameObject.Find("panelShowPerso").GetComponent<RectTransform>());    // TO DO , enlever find pas beau, mettre un delay 
+        p.randomPlayer();
+       // if(GameObject.Find("panelShowPerso")!=null)
+       //     ScreenShots.instance.TakeHiResShot(GameObject.Find("panelShowPerso").GetComponent<RectTransform>());    // TO DO , enlever find pas beau, mettre un delay 
         SaveLoad.Save();
     }
 
@@ -66,10 +68,13 @@ public class GameManager : MonoBehaviour
    */
     public Player getPlayer()
     {
-        return player;
+        return p;
     }
 
-  
+    public GameObject getPlayerGameObject()
+    {
+        return player;
+    }
 
 
 

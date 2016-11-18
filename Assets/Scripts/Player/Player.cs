@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class Player {
+public class Player : MonoBehaviour{
 
     public enum ethnie { white, black, asian, arab };
     ethnie e = ethnie.white;

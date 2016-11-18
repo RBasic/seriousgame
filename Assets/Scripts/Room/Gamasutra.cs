@@ -198,14 +198,14 @@ public class Gamasutra : MonoBehaviour
                 Destroy(go);
             }
             // add the corridor
-            addCorridor(first);
+            GameObject c = addCorridor(first);
 
             // enable all the colliders of the roof/ground/walls
             for (int i = 0; i < roomAfter.Count; i++)
             {
                 roomAfter[i].GetComponent<GamasutraRoom>().activeBorderCollider();
             }
-            corridor.GetComponent<BoxCollider2D>().enabled = false;
+            c.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
@@ -300,7 +300,7 @@ public class Gamasutra : MonoBehaviour
         }
     }
 
-    void addCorridor(GameObject first)
+    GameObject addCorridor(GameObject first)
     {
         GameObject c = (GameObject)Instantiate(corridor);
         float x = first.GetComponent<Transform>().position.x - first.GetComponent<GamasutraRoom>().getXY().x/2;
@@ -333,8 +333,7 @@ public class Gamasutra : MonoBehaviour
         float newZ = first.GetComponent<Transform>().position.z;
 
         c.GetComponent<Transform>().position=new Vector3(newX,newY,newZ);
-
-        
+        return c;
 
     }
 

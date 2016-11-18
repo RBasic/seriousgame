@@ -101,6 +101,7 @@ public class Gamasutra : MonoBehaviour
                 alignRooms();
                 align = true;
                 checkAttainable();
+
                 loadingScreen.SetActive(false);
                 
             }
@@ -198,6 +199,13 @@ public class Gamasutra : MonoBehaviour
             }
             // add the corridor
             addCorridor(first);
+
+            // enable all the colliders of the roof/ground/walls
+            for (int i = 0; i < roomAfter.Count; i++)
+            {
+                roomAfter[i].GetComponent<GamasutraRoom>().activeBorderCollider();
+            }
+            corridor.GetComponent<BoxCollider2D>().enabled = false;
         }
 
     }
@@ -220,7 +228,6 @@ public class Gamasutra : MonoBehaviour
                     higher = listBufferHorizontal[i];
                 }
             }
-
             float xOffset = higher.GetComponent<GamasutraRoom>().getXY().x / 2;
             float x = higher.GetComponent<Transform>().localPosition.x - xOffset;
 
@@ -303,22 +310,33 @@ public class Gamasutra : MonoBehaviour
         if (first.GetComponent<GamasutraRoom>().getHeight() > 1)
         {
             int random = Random.Range(0, 2);
-            if (random == 0)    // on top
+            if (random == 0) // on top
             {
                 newY += first.GetComponent<GamasutraRoom>().getXY().y/4;
+                // remove room from corridor to first room
+                first.GetComponent<GamasutraRoom>().doorLT.SetActive(false);
             }
             // on bottom
             else
             {
                 newY -= first.GetComponent<GamasutraRoom>().getXY().y/4;
+                // remove room from corridor to first room
+                first.GetComponent<GamasutraRoom>().doorLB.SetActive(false);
             }
-
-        }   
+        }
+        else
+        {
+            // remove room from corridor to first room
+            first.GetComponent<GamasutraRoom>().doorL.SetActive(false);
+        }
         float newX = x - c.GetComponent<BoxCollider2D>().bounds.size.x/2;
         
         float newZ = first.GetComponent<Transform>().position.z;
 
         c.GetComponent<Transform>().position=new Vector3(newX,newY,newZ);
+
+        
+
     }
 
     Vector2 getRandomPointInEllipse(float ellipse_width, float ellipse_height)

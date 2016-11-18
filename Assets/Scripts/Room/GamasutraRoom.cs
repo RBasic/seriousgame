@@ -10,7 +10,8 @@ public class GamasutraRoom : MonoBehaviour
     [SerializeField] BoxCollider2D colliderSupperpose;
     private int x = 16;
     private int y = 9;
-
+    [SerializeField]
+    GameObject colliderBorder;
 
     // doors to shown or not if the elements are next
     [Header("Doors simple wall")]
@@ -76,22 +77,21 @@ public class GamasutraRoom : MonoBehaviour
 
         // small square
         if (heigh == 1 && width==1)
-        {
-            
-            Vector3 originL = new Vector3(center.x+(x),center.y,center.z);
-            colliders = Physics2D.OverlapPointAll(originL);
-            if (colliders.Length > 0)
-            {
-                cpt++;
-                doorL.SetActive(false);
-            }
-
-            Vector3 originR = new Vector3(center.x - (x), center.y, center.z);
+        {  
+            Vector3 originR = new Vector3(center.x+(x),center.y,center.z);
             colliders = Physics2D.OverlapPointAll(originR);
             if (colliders.Length > 0)
             {
                 cpt++;
                 doorR.SetActive(false);
+            }
+
+            Vector3 originL = new Vector3(center.x - (x), center.y, center.z);
+            colliders = Physics2D.OverlapPointAll(originL);
+            if (colliders.Length > 0)
+            {
+                cpt++;
+                doorL.SetActive(false);
             }
 
             Vector3 originT = new Vector3(center.x , center.y+(y), center.z);
@@ -121,7 +121,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-               // doorTL.SetActive(false);
+                doorTL.SetActive(false);
             }
 
             //Top Right
@@ -130,7 +130,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorTR.SetActive(false);
+                doorTR.SetActive(false);
             }
 
             //Right Top
@@ -139,7 +139,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorRT.SetActive(false);
+                doorRT.SetActive(false);
             }
 
             //Right Bottom
@@ -148,7 +148,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-               // doorRB.SetActive(false);
+                doorRB.SetActive(false);
             }
 
             //Bottom Right
@@ -157,7 +157,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorRB.SetActive(false);
+                doorBR.SetActive(false);
             }
 
             //Bottom Left
@@ -166,7 +166,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorBL.SetActive(false);
+                doorBL.SetActive(false);
             }
 
             //Left Bottom
@@ -175,7 +175,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-               // doorLB.SetActive(false);
+                doorLB.SetActive(false);
             }
 
             //Left Top
@@ -184,7 +184,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorLT.SetActive(false);
+                doorLT.SetActive(false);
             }
 
         }
@@ -197,7 +197,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorTL.SetActive(false);
+                doorTL.SetActive(false);
             }
 
             //Top Right
@@ -206,7 +206,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorTR.SetActive(false);
+               doorTR.SetActive(false);
             }
 
             //Right
@@ -215,7 +215,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorR.SetActive(false);
+                doorR.SetActive(false);
             }
 
             //Bottom Right
@@ -224,7 +224,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorBR.SetActive(false);
+                doorBR.SetActive(false);
             }
 
             //Bottom Left
@@ -233,7 +233,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorBL.SetActive(false);
+                doorBL.SetActive(false);
             }
 
             //Left
@@ -242,7 +242,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorL.SetActive(false);
+                doorL.SetActive(false);
             }
 
         }
@@ -255,7 +255,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-               // doorT.SetActive(false);
+                doorT.SetActive(false);
             }
 
             //Right Top
@@ -264,7 +264,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorRT.SetActive(false);
+                doorRT.SetActive(false);
             }
 
             //Right Bottom
@@ -273,7 +273,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                //doorRB.SetActive(false);
+                doorRB.SetActive(false);
             }
 
             //Bottom
@@ -282,7 +282,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-               // doorB.SetActive(false);
+                doorB.SetActive(false);
             }
 
             //Left Bottom
@@ -291,7 +291,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-               // doorLB.SetActive(false);
+                doorLB.SetActive(false);
             }
 
             //Left Top
@@ -300,7 +300,7 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-               // doorLT.SetActive(false);
+                doorLT.SetActive(false);
             }
 
         }
@@ -557,5 +557,14 @@ public class GamasutraRoom : MonoBehaviour
     {
         see = state;
         miniMap.SetActive(see); // if the player see the room display it in the minimap
+    }
+
+    public void activeBorderCollider()
+    {
+        foreach (BoxCollider2D box in colliderBorder.GetComponentsInChildren<BoxCollider2D>())
+        {
+            box.enabled = true;
+        }
+        colliderSupperpose.enabled = false;
     }
 }

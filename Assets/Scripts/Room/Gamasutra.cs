@@ -207,7 +207,6 @@ public class Gamasutra : MonoBehaviour
             }
             corridor.GetComponent<BoxCollider2D>().enabled = false;
         }
-
     }
 
     void alignRooms()

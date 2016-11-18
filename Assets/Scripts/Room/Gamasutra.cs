@@ -214,6 +214,8 @@ public class Gamasutra : MonoBehaviour
                 player.transform.localPosition = spawnPlayerInCorridor.transform.localPosition;
                 GameObject.Find("Main Camera").SetActive(true);
                 GameObject.Find("Main Camera").GetComponent<CamFollow>().player = player.transform;
+                GameObject.Find("MiniMapCamera").GetComponent<CamFollow>().player = player.transform;
+                
             }
         }
     }
@@ -322,20 +324,38 @@ public class Gamasutra : MonoBehaviour
             {
                 newY += first.GetComponent<GamasutraRoom>().getXY().y/4;
                 // remove room from corridor to first room
-                first.GetComponent<GamasutraRoom>().doorLT.SetActive(false);
+                //first.GetComponent<GamasutraRoom>().doorLT.SetActive(false);
+                foreach (SpriteRenderer g in first.GetComponent<GamasutraRoom>().doorLT.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
             }
             // on bottom
             else
             {
                 newY -= first.GetComponent<GamasutraRoom>().getXY().y/4;
                 // remove room from corridor to first room
-                first.GetComponent<GamasutraRoom>().doorLB.SetActive(false);
+                //first.GetComponent<GamasutraRoom>().doorLB.SetActive(false);
+                foreach (SpriteRenderer g in first.GetComponent<GamasutraRoom>().doorLB.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
             }
         }
         else
         {
             // remove room from corridor to first room
-            first.GetComponent<GamasutraRoom>().doorL.SetActive(false);
+            //first.GetComponent<GamasutraRoom>().doorL.SetActive(false);
+            foreach (SpriteRenderer g in first.GetComponent<GamasutraRoom>().doorL.GetComponentsInChildren<SpriteRenderer>())
+            {
+                g.enabled = false;
+                g.GetComponent<BoxCollider2D>().isTrigger = true;
+                g.gameObject.AddComponent<DiscoverRoom>();
+            }
         }
         float newX = x - c.GetComponent<BoxCollider2D>().bounds.size.x/2;
         

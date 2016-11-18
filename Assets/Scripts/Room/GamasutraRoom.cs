@@ -83,7 +83,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorR.SetActive(false);
+                foreach (SpriteRenderer g in doorR.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorR.SetActive(false);
             }
 
             Vector3 originL = new Vector3(center.x - (x), center.y, center.z);
@@ -91,7 +97,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorL.SetActive(false);
+                foreach (SpriteRenderer g in doorL.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorL.SetActive(false);
             }
 
             Vector3 originT = new Vector3(center.x , center.y+(y), center.z);
@@ -99,7 +111,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorT.SetActive(false);
+                foreach (SpriteRenderer g in doorT.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorT.SetActive(false);
             }
 
             Vector3 originB = new Vector3(center.x , center.y-(y), center.z);
@@ -107,7 +125,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorB.SetActive(false);
+                foreach (SpriteRenderer g in doorB.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorB.SetActive(false);
             }
 
         }
@@ -121,7 +145,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorTL.SetActive(false);
+                foreach (SpriteRenderer g in doorTL.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorTL.SetActive(false);
             }
 
             //Top Right
@@ -130,7 +160,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorTR.SetActive(false);
+                foreach (SpriteRenderer g in doorTR.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                // doorTR.SetActive(false);
             }
 
             //Right Top
@@ -139,7 +175,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorRT.SetActive(false);
+                foreach (SpriteRenderer g in doorRT.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorRT.SetActive(false);
             }
 
             //Right Bottom
@@ -148,7 +190,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorRB.SetActive(false);
+                foreach (SpriteRenderer g in doorRB.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorRB.SetActive(false);
             }
 
             //Bottom Right
@@ -157,7 +205,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorBR.SetActive(false);
+                foreach (SpriteRenderer g in doorBR.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                // doorBR.SetActive(false);
             }
 
             //Bottom Left
@@ -166,7 +220,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorBL.SetActive(false);
+                foreach (SpriteRenderer g in doorBL.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                // doorBL.SetActive(false);
             }
 
             //Left Bottom
@@ -175,7 +235,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorLB.SetActive(false);
+                foreach (SpriteRenderer g in doorLB.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                // doorLB.SetActive(false);
             }
 
             //Left Top
@@ -184,7 +250,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorLT.SetActive(false);
+                foreach (SpriteRenderer g in doorLT.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                // doorLT.SetActive(false);
             }
 
         }
@@ -197,7 +269,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorTL.SetActive(false);
+                foreach (SpriteRenderer g in doorTL.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorTL.SetActive(false);
             }
 
             //Top Right
@@ -206,7 +284,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-               doorTR.SetActive(false);
+                foreach (SpriteRenderer g in doorTR.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                // doorTR.SetActive(false);
             }
 
             //Right
@@ -215,7 +299,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorR.SetActive(false);
+                foreach (SpriteRenderer g in doorR.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorR.SetActive(false);
             }
 
             //Bottom Right
@@ -224,7 +314,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorBR.SetActive(false);
+                foreach (SpriteRenderer g in doorBR.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorBR.SetActive(false);
             }
 
             //Bottom Left
@@ -233,7 +329,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorBL.SetActive(false);
+                foreach (SpriteRenderer g in doorBL.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorBL.SetActive(false);
             }
 
             //Left
@@ -242,7 +344,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorL.SetActive(false);
+                foreach (SpriteRenderer g in doorL.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorL.SetActive(false);
             }
 
         }
@@ -255,7 +363,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorT.SetActive(false);
+                foreach (SpriteRenderer g in doorT.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorT.SetActive(false);
             }
 
             //Right Top
@@ -264,7 +378,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorRT.SetActive(false);
+                foreach (SpriteRenderer g in doorRT.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                // doorRT.SetActive(false);
             }
 
             //Right Bottom
@@ -273,7 +393,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorRB.SetActive(false);
+                foreach (SpriteRenderer g in doorRB.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                // doorRB.SetActive(false);
             }
 
             //Bottom
@@ -282,7 +408,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorB.SetActive(false);
+                foreach (SpriteRenderer g in doorB.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorB.SetActive(false);
             }
 
             //Left Bottom
@@ -291,7 +423,13 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorLB.SetActive(false);
+                foreach (SpriteRenderer g in doorLB.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorLB.SetActive(false);
             }
 
             //Left Top
@@ -300,9 +438,14 @@ public class GamasutraRoom : MonoBehaviour
             if (colliders.Length > 0)
             {
                 cpt++;
-                doorLT.SetActive(false);
+                foreach (SpriteRenderer g in doorLT.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    g.enabled = false;
+                    g.GetComponent<BoxCollider2D>().isTrigger = true;
+                    g.gameObject.AddComponent<DiscoverRoom>();
+                }
+                //doorLT.SetActive(false);
             }
-
         }
 
         if (cpt == 0)
@@ -566,5 +709,11 @@ public class GamasutraRoom : MonoBehaviour
             box.enabled = true;
         }
         colliderSupperpose.enabled = false;
+    }
+
+    // put the minimap visible
+    public void discoverRoom(bool state)
+    {
+        miniMap.SetActive(state);
     }
 }

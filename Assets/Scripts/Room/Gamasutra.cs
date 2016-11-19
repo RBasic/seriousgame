@@ -6,7 +6,6 @@ using UnityEngine.Assertions.Comparers;
 public class Gamasutra : MonoBehaviour
 {
     [SerializeField] private GameObject corridor;   // prefab of the corridor
-    [SerializeField] private GameObject spawnPlayerInCorridor;   // prefab of the corridor
 
     public List<GameObject> rooms;  // type of rooms possibles
     List<GameObject> lvlRooms = new List<GameObject>();
@@ -209,13 +208,19 @@ public class Gamasutra : MonoBehaviour
             c.GetComponent<BoxCollider2D>().enabled = false;
             if (GameManager.instance != null)
             {
+                GameManager.instance.getPlayerGameObject().transform.position =GameObject.Find("spawnPlayer").transform.position;
                 GameObject player = Instantiate(GameManager.instance.getPlayerGameObject());
-                player.transform.SetParent(c.transform);
-                player.transform.localPosition = spawnPlayerInCorridor.transform.localPosition;
+                //tra,sform the local position in world position
+                // player.transform.position = GameObject.Find("spawnPlayer").transform.position;
+                GameManager.instance.setCurrentRoom(c);
+                GameObject.Find("Main Camera").GetComponent<CamFollow>().firstPositionCorridor(c);  //utile ?
+                //player.transform.SetParent(this.gameObject.transform);
                 GameObject.Find("Main Camera").SetActive(true);
                 GameObject.Find("Main Camera").GetComponent<CamFollow>().player = player.transform;
                 GameObject.Find("MiniMapCamera").GetComponent<CamFollow>().player = player.transform;
-                
+                GameObject.Find("MiniMapCamera").GetComponent<CamFollow>().setMinimap(true);
+
+
             }
         }
     }
@@ -314,6 +319,7 @@ public class Gamasutra : MonoBehaviour
     GameObject addCorridor(GameObject first)
     {
         GameObject c = (GameObject)Instantiate(corridor);
+        c.transform.SetParent(this.gameObject.transform);
         float x = first.GetComponent<Transform>().position.x - first.GetComponent<GamasutraRoom>().getXY().x/2;
         float newY = first.GetComponent<Transform>().position.y;
         // if the height is 2, align the corridor on the top or on the bottom in random

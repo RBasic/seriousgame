@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class Player : MonoBehaviour{
+public class Player {
 
     public enum ethnie { white, black, asian, arab };
     ethnie e = ethnie.white;
@@ -14,16 +14,7 @@ public class Player : MonoBehaviour{
     bool sexuality = true;     // hetero or gay/lesbo
     bool scolarSkill;   // change when see a new teacher (the teacher decide of your skill)
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+   
     public void dead()
     {
 
@@ -222,4 +213,6 @@ public class Player : MonoBehaviour{
             file.WriteLine(ethnie+","+body+","+handicap+","+gender+","+sexuality);
         }
     }
+
+   
 }

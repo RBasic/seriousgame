@@ -25,11 +25,11 @@ public class LoadOldPlayer : MonoBehaviour
     */
     private void LoadData(int itemCount)
     {
-        Debug.Log(itemCount);
+        /*
         for (int i = 0; i < itemCount; i++)
         {
             Debug.Log(SaveLoad.savedPlayers[i].getEthnieString());
-        }
+        }*/
             List<object> data = new List<object>();
 
         for (int i = 0; i < itemCount; i++)

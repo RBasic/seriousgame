@@ -716,4 +716,17 @@ public class GamasutraRoom : MonoBehaviour
     {
         miniMap.SetActive(state);
     }
+
+    public Vector2 getCenter()
+    {
+        return  new Vector2(this.transform.position.x, this.transform.position.y);
+
+       
+    }
+
+    public Vector2 getSize()
+    {
+       return new Vector2(x * (width - 1), y * (heigh - 1));
+
+    }
 }

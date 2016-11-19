@@ -7,12 +7,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject player;
     private Player p;
-
+    private GameObject currentRoom;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         _instance = this;
-        p = player.GetComponent<Player>();
+        p = new Player();
     }
 
     public static GameManager instance
@@ -24,33 +24,16 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager _instance;
 
-    // Use this for initialization
-    void Start()
-    {
-       
-       
-    }
+  
     /*
     *@brief : all the functions call when the player tap play
     */
     public void launchGame(){
-        
         SaveLoad.Load();
         setPlayer();
     }
 
   
-    // Update is called once per frame
-    void Update()
-    {
-        /*
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            p.dead();
-        }
-      */
-    
-    }
 
     /*
     * @brief : set the param of the player
@@ -76,7 +59,15 @@ public class GameManager : MonoBehaviour
         return player;
     }
 
+    public void setCurrentRoom(GameObject room)
+    {
+        currentRoom = room;
+    }
 
+    public GameObject getCurrentRoom()
+    {
+        return currentRoom;
+    }
 
 
 }

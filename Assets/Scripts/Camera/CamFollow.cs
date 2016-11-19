@@ -23,7 +23,6 @@ public class CamFollow : MonoBehaviour
         // left x of the corridor + /2 cam size
         float leftX = corridor.transform.position.x - corridor.GetComponent<GamasutraRoom>().getXY().x/2 + corridor.GetComponent<GamasutraRoom>().getXY().x /6.0f;
         transform.position = new Vector3(leftX, corridor.transform.position.y,this.transform.position.z);
-      
     }
 
     void Update()

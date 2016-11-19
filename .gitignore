@@ -43,3 +43,5 @@ fmod_editor.log
 Assets/Sprites/rooms.meta
 *.meta
 Assets/Sprites/rooms.meta
+fmod_editor.log
+Assets/FMODStudioCache.asset

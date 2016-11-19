@@ -213,7 +213,7 @@ public class Gamasutra : MonoBehaviour
                 //tra,sform the local position in world position
                 // player.transform.position = GameObject.Find("spawnPlayer").transform.position;
                 GameManager.instance.setCurrentRoom(c);
-                GameObject.Find("Main Camera").GetComponent<CamFollow>().firstPositionCorridor(c);  //utile ?
+                GameObject.Find("Main Camera").GetComponent<CamFollow>().firstPositionCorridor(c); //utile ?
                 //player.transform.SetParent(this.gameObject.transform);
                 GameObject.Find("Main Camera").SetActive(true);
                 GameObject.Find("Main Camera").GetComponent<CamFollow>().player = player.transform;

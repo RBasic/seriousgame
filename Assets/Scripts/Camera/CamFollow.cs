@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 public class CamFollow : MonoBehaviour
 {
     public Transform player;
-    public bool stopCam = false;
     private bool miniMap = false;
     private float x, y;
     private Vector3 newPosition;

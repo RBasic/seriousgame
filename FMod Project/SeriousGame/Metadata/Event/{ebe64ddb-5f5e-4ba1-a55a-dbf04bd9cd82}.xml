@@ -28,6 +28,9 @@
         <relationship name="timeline">
             <destination>{dd11647e-406a-4927-b730-830f390ab155}</destination>
         </relationship>
+        <relationship name="banks">
+            <destination>{5f735905-3051-4649-a5b2-b2b691ec04c2}</destination>
+        </relationship>
         <relationship name="folder">
             <destination>{b26bd29e-9cd5-440d-aee9-a82b1b73f964}</destination>
         </relationship>

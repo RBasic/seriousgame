@@ -4,12 +4,18 @@ public delegate void SelectedChangedDelegate(bool selected);
 
 public class Data
 {
-    public string itemEthnie;
-    public string itemBody;
-    public string itemHandicap;
-    public string itemGender;
-    public string itemSexuality;
-    public Texture itemTexture;
+    //visus
+    public string itemEthnieString;
+    public string itemBodyString;
+    public string itemHandicapString;
+    public string itemGenderString;
+    public string itemSexualityString;
+    //description ecite
+    public Player.ethnie itemEthnie;
+    public Player.body itemBody;
+    public bool itemHandicap;
+    public bool itemGender;
+    public bool itemSexuality;
 
     public SelectedChangedDelegate selectedChanged;
     private bool _selected;

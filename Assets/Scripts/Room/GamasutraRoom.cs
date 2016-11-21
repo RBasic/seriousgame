@@ -13,6 +13,8 @@ public class GamasutraRoom : MonoBehaviour
     [SerializeField]
     GameObject colliderBorder;
 
+    public GameObject checkSide;
+
     // doors to shown or not if the elements are next
     [Header("Doors simple wall")]
     public GameObject doorL;
@@ -48,19 +50,95 @@ public class GamasutraRoom : MonoBehaviour
 
     public void checkSupperpose(List<GameObject> lvlRooms)
     {
-        // center of the element
-        Vector3 center = this.GetComponent<Transform>().localPosition;
+        // check if the centers of the element collide with collider
+        if (heigh == 1 && width == 1)
+        {
+            // center
+            Vector3 center = this.GetComponent<Transform>().localPosition;
+            deleteCollider(lvlRooms, center);
+
+
+        }
+        else if (heigh == 2 && width == 2)
+        {
+            // center TL
+            Vector3 center = this.GetComponent<Transform>().localPosition;
+            center.x -= x/2;
+            center.y += y/2;
+            deleteCollider(lvlRooms, center);
+
+
+            // center TR
+            center = this.GetComponent<Transform>().localPosition;
+            center.x += x/2;
+            center.y += y/2;
+            deleteCollider(lvlRooms, center);
+
+
+            // center BL
+            center = this.GetComponent<Transform>().localPosition;
+            center.x -= x / 2;
+            center.y -= y / 2;
+            deleteCollider(lvlRooms, center);
+
+            // center BR
+            center = this.GetComponent<Transform>().localPosition;
+            center.x += x / 2;
+            center.y -= y / 2;
+            deleteCollider(lvlRooms, center);
+
+        }
+        else if (heigh == 1 && width == 2)
+        {
+            // center L
+            Vector3 center = this.GetComponent<Transform>().localPosition;
+            center = this.GetComponent<Transform>().localPosition;
+            center.x -= x / 2;
+         
+          
+            deleteCollider(lvlRooms, center);
+
+
+            // center R
+            center = this.GetComponent<Transform>().localPosition;
+            center = this.GetComponent<Transform>().localPosition;
+            center.x += x / 2;
+
+            deleteCollider(lvlRooms, center);
+
+        }
+        else if (heigh == 2 && width == 1)
+        {
+            // center T
+            Vector3 center = this.GetComponent<Transform>().localPosition;
+            center = this.GetComponent<Transform>().localPosition;
+            center.y += y / 2;
+            deleteCollider(lvlRooms, center);
+
+
+            // center B
+            center = this.GetComponent<Transform>().localPosition;
+            center = this.GetComponent<Transform>().localPosition;
+            center.y -= y / 2;
+            deleteCollider(lvlRooms, center);
+        }
+      
+    }
+
+    void deleteCollider(List<GameObject> lvlRooms, Vector3 center)
+    {
         colliders = Physics2D.OverlapPointAll(center);
+
         if (colliders.Length > 1)
         {
             for (int i = 1; i < colliders.Length; i++)
             {
-                Debug.Log(this + " " + "delete because of superposition");
-                lvlRooms.Remove(colliders[i].gameObject);
-                Destroy(colliders[i].gameObject);
+                // Debug.Log(this + " " + "delete because of superposition");
+                lvlRooms.Remove(colliders[i].gameObject.GetComponentInParent<GamasutraRoom>().gameObject);
+                //Debug.Log(lvlRooms.Count);
+                Destroy(colliders[i].gameObject.GetComponentInParent<GamasutraRoom>().gameObject);
             }
         }
-    
     }
 
     public void checkSides(List<GameObject> lvlRooms)
@@ -360,6 +438,7 @@ public class GamasutraRoom : MonoBehaviour
             //Top
             Vector3 originT = new Vector3(center.x , center.y + (y) + (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originT);
+
             if (colliders.Length > 0)
             {
                 cpt++;
@@ -374,6 +453,7 @@ public class GamasutraRoom : MonoBehaviour
 
             //Right Top
             Vector3 originRT = new Vector3(center.x  + (x ), center.y + (y / 2), center.z);
+       
             colliders = Physics2D.OverlapPointAll(originRT);
             if (colliders.Length > 0)
             {
@@ -390,6 +470,7 @@ public class GamasutraRoom : MonoBehaviour
             //Right Bottom
             Vector3 originRB = new Vector3(center.x + (x ), center.y - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originRB);
+      
             if (colliders.Length > 0)
             {
                 cpt++;
@@ -405,6 +486,7 @@ public class GamasutraRoom : MonoBehaviour
             //Bottom
             Vector3 originB = new Vector3(center.x, center.y -(y) - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originB);
+     
             if (colliders.Length > 0)
             {
                 cpt++;
@@ -420,6 +502,7 @@ public class GamasutraRoom : MonoBehaviour
             //Left Bottom
             Vector3 originLB = new Vector3(center.x  - (x ), center.y - (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originLB);
+          
             if (colliders.Length > 0)
             {
                 cpt++;
@@ -435,6 +518,7 @@ public class GamasutraRoom : MonoBehaviour
             //Left Top
             Vector3 originLT = new Vector3(center.x  - (x ), center.y + (y / 2), center.z);
             colliders = Physics2D.OverlapPointAll(originLT);
+         
             if (colliders.Length > 0)
             {
                 cpt++;

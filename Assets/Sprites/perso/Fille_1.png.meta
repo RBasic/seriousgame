@@ -1,9 +1,19 @@
 fileFormatVersion: 2
 guid: c06ec68da6d884e4da3683cbd4c7e6a7
-timeCreated: 1479281386
+timeCreated: 1479587407
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Fille_1_0
+    21300002: Fille_1_1
+    21300004: Fille_1_2
+    21300006: Fille_1_3
+    21300008: Fille_1_4
+    21300010: Fille_1_5
+    21300012: Fille_1_6
+    21300014: Fille_1_7
+    21300016: Fille_1_8
+    21300018: Fille_1_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +48,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +61,137 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Fille_1_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 62
+        width: 229
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_1
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 349
+        width: 42
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 347
+        width: 41
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_3
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 217
+        width: 229
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_4
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 213
+        width: 78
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_5
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 95
+        width: 46
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_6
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 94
+        width: 46
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_7
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 42
+        width: 134
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_8
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 56
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fille_1_9
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 55
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

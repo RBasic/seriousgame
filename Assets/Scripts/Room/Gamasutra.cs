@@ -88,6 +88,7 @@ public class Gamasutra : MonoBehaviour
         // check if all the elements are align
         if (!align && startAgencement)
         {
+            // check all the elemnts are not moving
             for (int i = 0; i < lvlRooms.Count; i++)
             {
                 if (lastPos[i] != lvlRooms[i].GetComponent<Transform>().position)
@@ -96,12 +97,12 @@ public class Gamasutra : MonoBehaviour
                 }
                 lastPos[i] = (lvlRooms[i].GetComponent<Transform>().position);
             }
+            // if any elements move anymore
             if (cpt == 0)
             {
-                alignRooms();
-                align = true;
-                checkAttainable();
-
+                align = true;                   // when every alement are align
+                alignRooms();                   // align the element on a grid
+                checkAttainable();              // check if all elements are attainable and remove the non attainable
                 loadingScreen.SetActive(false);
                 
             }
@@ -227,12 +228,13 @@ public class Gamasutra : MonoBehaviour
 
     void alignRooms()
     {
+        // remove the collider on the limit of the room in order to align them without physic
         foreach (GameObject l in lvlRooms)
         {
             l.GetComponent<BoxCollider2D>().enabled = false;
             l.GetComponent<Rigidbody2D>().isKinematic = true;
-
         }
+        // align on the horizontal way
         while (listBufferHorizontal.Count > 0)
         {
             GameObject higher = listBufferHorizontal[0];
@@ -263,6 +265,7 @@ public class Gamasutra : MonoBehaviour
             listBufferHorizontal.Remove(higher);
 
         }
+        // align on the vertical way
         while (listBufferVertical.Count > 0)
         {
             GameObject higher = listBufferVertical[0];
@@ -292,17 +295,14 @@ public class Gamasutra : MonoBehaviour
             higher.GetComponent<Transform>().localPosition = new Vector3(x, yyy - yOffset, z);
             listBufferVertical.Remove(higher);
         }
-
+        Debug.Log(lvlRooms.Count);
         foreach (GameObject l in lvlRooms)
         {
-
-            l.GetComponent<BoxCollider2D>().enabled = false;    // desable the big collider
             l.GetComponent<GamasutraRoom>().getColliderSupperpose().enabled = true; // enable the little
-
         }
         for (int i = 0; i < lvlRooms.Count; i++)
         {
-            lvlRooms[i].GetComponent<GamasutraRoom>().check(lvlRooms);
+           lvlRooms[i].GetComponent<GamasutraRoom>().check(lvlRooms);   // check if the room is superpose and alone
         }
 
     }
@@ -311,7 +311,7 @@ public class Gamasutra : MonoBehaviour
         for (int i = 0; i < nbRooms; i++)
         {
             GameObject s = (GameObject) Instantiate(rooms[Random.Range(0, rooms.Count)], this.transform);
-            s.GetComponent<Transform>().localPosition = getRandomPointInEllipse(100,2);//getRandomPointInCircle(1.0f);
+            s.GetComponent<Transform>().localPosition = getRandomPointInEllipse(90,2);//getRandomPointInCircle(1.0f);
             lvlRooms.Add(s);
         }
     }

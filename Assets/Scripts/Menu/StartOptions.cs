@@ -47,11 +47,11 @@ public class StartOptions : MonoBehaviour {
 		//If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
 		if (changeScenes) 
 		{
-			//Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
-			Invoke ("LoadDelayed", fadeColorAnimationClip.length * .5f);
+            //Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
+		    Invoke ("LoadDelayed", fadeColorAnimationClip.length * .5f);
 
-			//Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
-			animColorFade.SetTrigger ("fade");
+		    //Set the trigger of Animator animColorFade to start transition to the FadeToOpaque state.
+		    animColorFade.SetTrigger ("fade");
 		} 
 
 		//If changeScenes is false, call StartGameInScene
@@ -106,7 +106,7 @@ public class StartOptions : MonoBehaviour {
 		}
 		//Set trigger for animator to start animation fading out Menu UI
 		animMenuAlpha.SetTrigger ("fade");
-		Invoke("HideDelayed", fadeAlphaAnimationClip.length);
+	    HideDelayed();//Invoke("HideDelayed", fadeAlphaAnimationClip.length);
         SceneManager.LoadScene("Description");
 
     }

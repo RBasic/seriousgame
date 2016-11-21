@@ -7,6 +7,8 @@ public class LoadOldPlayer : MonoBehaviour
     public EnhancedScroller horizontalScroller;
     public UnityEngine.UI.Text horizontalFeedbackText;
 
+    private int currentIndex;
+    private int indexMax;
     //string[] linesFile; // the lines of the txt with the old datas
 
     void Start()
@@ -16,10 +18,37 @@ public class LoadOldPlayer : MonoBehaviour
         
         //LoadData(linesFile.Length);
         LoadData(SaveLoad.savedPlayers.Count);      // load as much as player than datas
-        JumpToIndex(SaveLoad.savedPlayers.Count-1); // jump to the last player in hierarchy
+        indexMax = SaveLoad.savedPlayers.Count - 1;
+        currentIndex = indexMax;
+        JumpToIndex(currentIndex); // jump to the last player in hierarchy
     }
 
-
+    void Update()
+    {
+        /*
+        foreach (KeyCode kcode in System.Enum.GetValues(typeof(KeyCode)))
+        {
+            if (Input.GetKeyDown(kcode))
+                Debug.Log("KeyCode down: " + kcode);
+        }*/
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            Debug.Log("+");
+            if (currentIndex + 1 <= indexMax)
+            {
+                currentIndex++;
+                JumpToIndex(currentIndex);
+            }
+        }
+        else if(Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            if (currentIndex - 1 >= 0)
+            {
+                currentIndex--;
+                JumpToIndex(currentIndex);
+            }
+        }
+    }
     /*
     * @brief : load all the old datas of the player
     */
@@ -40,12 +69,17 @@ public class LoadOldPlayer : MonoBehaviour
             //tex.LoadImage(SaveLoad.savedImages[0]);
             data.Add(new Data()
             {
-                itemEthnie = SaveLoad.savedPlayers[i].getEthnieString(),//datas[0],
-                itemBody = SaveLoad.savedPlayers[i].getBodyString(),//datas[1],
-                itemHandicap = SaveLoad.savedPlayers[i].getHandicapString(),//datas[2],
-                itemGender = SaveLoad.savedPlayers[i].getGenderString(),// datas[3],
-                itemSexuality = SaveLoad.savedPlayers[i].getSexualityString(),//datas[4]
-                itemTexture = tex 
+                itemEthnieString = SaveLoad.savedPlayers[i].getEthnieString(),//datas[0],
+                itemBodyString = SaveLoad.savedPlayers[i].getBodyString(),//datas[1],
+                itemHandicapString = SaveLoad.savedPlayers[i].getHandicapString(),//datas[2],
+                itemGenderString = SaveLoad.savedPlayers[i].getGenderString(),// datas[3],
+                itemSexualityString = SaveLoad.savedPlayers[i].getSexualityString(),//datas[4]
+
+                itemEthnie = SaveLoad.savedPlayers[i].getEthnie(),//datas[0],
+                itemBody = SaveLoad.savedPlayers[i].getBody(),//datas[1],
+                itemHandicap = SaveLoad.savedPlayers[i].getHandicap(),//datas[2],
+                itemGender = SaveLoad.savedPlayers[i].getGender(),// datas[3],
+                itemSexuality = SaveLoad.savedPlayers[i].getSexuality(),//datas[4]
             });
            }
         
@@ -62,11 +96,12 @@ public class LoadOldPlayer : MonoBehaviour
     private void HorizontalItemSelected(ListItemBase listItemBase)
     {
         ListItem listItem = (listItemBase as ListItem);
-
+        /*
         horizontalFeedbackText.text = "Horizontal Item Selected " +
                                         (char)10 + "Item GameObject: " + listItem.gameObject.name +
                                         (char)10 + "Item Index: " + listItem.ItemIndex.ToString() +
                                         (char)10 + "Data Index: " + listItem.DataIndex.ToString();
+                                        */
                                 
     }
 

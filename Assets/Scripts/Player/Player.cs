@@ -46,12 +46,12 @@ public class Player {
         int lenght = ethnie.GetNames(typeof(ethnie)).Length;
         int rand = Random.Range(0,lenght);
         e = (ethnie)rand;
-        
+
         lenght = body.GetNames(typeof(body)).Length;
         rand = Random.Range(0, lenght);
         b = (body)rand;
-
-        handicap = intToBool(Random.Range(0, 2));
+        handicap = false;
+        //handicap = intToBool(Random.Range(0, 2));
         gender = intToBool(Random.Range(0, 2));
         sexuality = intToBool(Random.Range(0, 2));
         scolarSkill = intToBool(Random.Range(0, 2));

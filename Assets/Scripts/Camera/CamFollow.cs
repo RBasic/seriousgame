@@ -66,9 +66,12 @@ public class CamFollow : MonoBehaviour
                 .GetComponent<GamasutraRoom>()
                 .getCenter();
 
+        //Debug.Log("current : "+GameManager.instance.getCurrentRoom()+" // "+size+" // "+center);
+
         //g1 = new Vector3(bounds.center.x,bounds.center.y,0);
         //g2 = new Vector3(bounds.size.x,bounds.size.y,0);
-       
+       //Debug.Log("# y "+y+" // "+(center.y - size.y/2)+" // "+ (center.y + size.y/2));
+
         x = Mathf.Clamp(x, center.x-size.x/2, center.x + size.x/2);
         y = Mathf.Clamp(y, center.y - size.y/2, center.y + size.y/2);
 

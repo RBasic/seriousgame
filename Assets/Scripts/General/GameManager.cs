@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     private Player p;
     private GameObject currentRoom;
+
+    [SerializeField] GameObject prefabEnemy;
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -69,5 +72,9 @@ public class GameManager : MonoBehaviour
         return currentRoom;
     }
 
+    public GameObject getPrefabEnemy()
+    {
+        return prefabEnemy;
+    }
 
 }

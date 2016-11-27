@@ -15,8 +15,14 @@ public class GamasutraRoom : MonoBehaviour
 
     public GameObject checkSide;
 
+
+    [Header("Inside")]
     public GameObject insidePrefab;
     GameObject inside;
+    [SerializeField] private GameObject spawn;
+    private List<GameObject> listSpawn = new List<GameObject>();
+    private bool alreadySpawn = false;
+    private List<GameObject> listEnemies = new List<GameObject>();
 
     // doors to shown or not if the elements are next
     [Header("Doors simple wall")]
@@ -48,6 +54,16 @@ public class GamasutraRoom : MonoBehaviour
             inside.transform.SetParent(this.transform);
             inside.transform.localPosition = Vector3.zero;
             inside.SetActive(false);
+        }
+        if (spawn != null)
+        {
+            foreach (Transform go in this.spawn.GetComponentsInChildren<Transform>(true))
+            {
+                if (go != spawn)
+                {
+                    listSpawn.Add(go.gameObject);
+                }
+            }
         }
     }
 
@@ -816,6 +832,12 @@ public class GamasutraRoom : MonoBehaviour
         {
             inside.SetActive(true);
         }
+        // make the enemy spawn if it's not already spawn
+        if (state && listSpawn.Count != 0 && !alreadySpawn)
+        {
+            Debug.Log("ici");
+            makeEnemySpawn();
+        }
         miniMap.SetActive(state);
     }
 
@@ -831,4 +853,23 @@ public class GamasutraRoom : MonoBehaviour
        return new Vector2(x * (width - 1), y * (heigh - 1));
 
     }
+
+    void makeEnemySpawn()
+    {
+        
+        int nbEnemy = Random.Range(1, listSpawn.Count); // at least one enemy
+        Debug.Log("nbenemy : "+nbEnemy);
+        while (nbEnemy!=0)
+        {
+            int indexEnemy = Random.Range(0, listSpawn.Count);
+            GameObject enemy = Instantiate(GameManager.instance.getPrefabEnemy());
+            enemy.transform.SetParent(this.gameObject.transform);
+            enemy.transform.localPosition = listSpawn[indexEnemy].transform.localPosition;
+            listEnemies.Add(enemy);
+            listSpawn.RemoveAt(indexEnemy);
+            nbEnemy--;
+        }
+        alreadySpawn = true;
+    }
+
 }

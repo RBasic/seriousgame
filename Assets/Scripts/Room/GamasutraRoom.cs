@@ -15,6 +15,9 @@ public class GamasutraRoom : MonoBehaviour
 
     public GameObject checkSide;
 
+    public GameObject insidePrefab;
+    GameObject inside;
+
     // doors to shown or not if the elements are next
     [Header("Doors simple wall")]
     public GameObject doorL;
@@ -36,6 +39,17 @@ public class GamasutraRoom : MonoBehaviour
     [SerializeField] GameObject miniMap;
 
     Collider2D[] colliders;
+
+    void Awake()
+    {
+        if (insidePrefab != null)
+        {
+            inside = Instantiate(insidePrefab);
+            inside.transform.SetParent(this.transform);
+            inside.transform.localPosition = Vector3.zero;
+            inside.SetActive(false);
+        }
+    }
 
     public BoxCollider2D getColliderSupperpose()
     {
@@ -798,6 +812,10 @@ public class GamasutraRoom : MonoBehaviour
     // put the minimap visible
     public void discoverRoom(bool state)
     {
+        if (state && inside!=null)
+        {
+            inside.SetActive(true);
+        }
         miniMap.SetActive(state);
     }
 

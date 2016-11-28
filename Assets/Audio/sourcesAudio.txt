@@ -1,3 +1,7 @@
-//eating : http://soundbible.com/976-Eating.html 
+/* Diane */
+Si y a ecrit modif : c'est que c'est la version à utiliser
+//eating : http://soundbible.com/976-Eating.html // modif de l'amplification
 //jump : http://soundbible.com/1898-Spin-Jump.html
-//atterissage: http://soundbible.com/1987-Rockslide-Small.html // change on audible - duplique la fin + ajout de reverb
+//atterissage : http://soundbible.com/1987-Rockslide-Small.html // change on audible - enleve saturation + duplique la fin + ajout de reverb
+//achatMarchand : http://soundbible.com/333-Cash-Register-Cha-Ching.html // reduit le fichier
+// piece : diane :3 enregistrement + saturation + reverb + ajout aigu

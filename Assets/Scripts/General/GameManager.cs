@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,10 @@ public class GameManager : MonoBehaviour
     private GameObject currentRoom;
 
     [SerializeField] GameObject prefabEnemy;
+
+    [Header("MonyMoney")]
+    [SerializeField] private Text panelSousous;
+    private int moneyMoney = 0;
 
     void Awake()
     {

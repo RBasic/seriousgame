@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Assertions.Comparers;
 
+
+
 public class Gamasutra : MonoBehaviour
 {
     [SerializeField] private GameObject corridor;   // prefab of the corridor

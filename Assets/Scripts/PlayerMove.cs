@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim  = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()

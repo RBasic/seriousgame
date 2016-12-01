@@ -1,0 +1,115 @@
+fileFormatVersion: 2
+guid: dc477e58f97b7654d92e5edf80a1e668
+timeCreated: 1480506892
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: leg_up
+    21300002: leg_down
+    21300004: arm_up
+    21300006: arm_down
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: leg_up
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 139
+        width: 53
+        height: 53
+      alignment: 9
+      pivot: {x: 0.49397048, y: 0.87874436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: leg_down
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 85
+        width: 39
+        height: 49
+      alignment: 9
+      pivot: {x: 0.51638794, y: 0.95000035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: arm_up
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 384
+        width: 48
+        height: 80
+      alignment: 9
+      pivot: {x: 0.4484609, y: 0.88792723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: arm_down
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 299
+        width: 41
+        height: 56
+      alignment: 9
+      pivot: {x: 0.47988743, y: 0.94175774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

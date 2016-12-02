@@ -77,6 +77,16 @@ public class PlayerMove : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, maxfall);
         }
+
+        if( Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            anim.SetBool("attack", true);
+        }
+        else
+        {
+            anim.SetBool("attack", false);
+        }
+
     }
 
     void flip()

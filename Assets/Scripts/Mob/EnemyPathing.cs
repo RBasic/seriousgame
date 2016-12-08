@@ -104,52 +104,46 @@ public class EnemyPathing : MonoBehaviour {
 
     void defineMovementLimits()
     {
-        
-        Vector3 actualEnemyPosition = transform.position - transform.parent.parent.transform.position;
-        Debug.Log(actualEnemyPosition + " " + transform.position);
+        Vector3 actualEnemyPosition = transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 4.0f, lM);
-
-        Vector3 hitLocalPosition = Vector3.zero;
 
         // Check down platform
         if (hit.collider != null)
         {
-            hitLocalPosition = hit.collider.gameObject.transform.localPosition;
-
-            xRightLimit = hitLocalPosition.x + (float)(hit.collider.gameObject.GetComponent<Collider2D>().bounds.size.x / 2);
-            xLeftLimit = hitLocalPosition.x - (float)(hit.collider.gameObject.GetComponent<Collider2D>().bounds.size.x / 2);
-            Debug.Log(xLeftLimit + " " + xRightLimit);
-            xRightLimit -= actualEnemyPosition.x;
-            xLeftLimit -= actualEnemyPosition.x;
+            xRightLimit = hit.collider.gameObject.GetComponent<Collider2D>().bounds.max.x;
+            xLeftLimit = hit.collider.gameObject.GetComponent<Collider2D>().bounds.min.x;
         }
-        
+
         //Check if right wall is closer
-        hit = Physics2D.Raycast(transform.position, Vector2.right, xRightLimit, lM);
+        hit = Physics2D.Raycast(transform.position, Vector2.right, 3.0f, lM);
 
         if (hit.collider != null)
         {
-            hitLocalPosition = hit.collider.gameObject.transform.localPosition;
-
-            xRightLimit = hitLocalPosition.x - (float)(hit.collider.gameObject.GetComponent<Collider2D>().bounds.size.x / 2);
-            xRightLimit -= actualEnemyPosition.x;
+            xRightLimit = hit.collider.gameObject.GetComponent<Collider2D>().bounds.min.x;
         }
 
         //Check if left wall is closer
-        hit = Physics2D.Raycast(transform.position, Vector2.left, xLeftLimit, lM);
-        
-        if(hit.collider != null)
+        hit = Physics2D.Raycast(transform.position, Vector2.left, 3.0f, lM);
+
+        if (hit.collider != null)
         {
-            hitLocalPosition = hit.collider.gameObject.transform.localPosition;
-            xLeftLimit = hitLocalPosition.x + (float)(hit.collider.gameObject.GetComponent<Collider2D>().bounds.size.x / 2);
-            xLeftLimit -= actualEnemyPosition.x;
+            xLeftLimit = hit.collider.gameObject.GetComponent<Collider2D>().bounds.max.x;
         }
 
+        if (Mathf.Abs(transform.position.x - xLeftLimit) > 2.5f)
+        {
+            xLeftLimit = transform.position.x - 2.5f;
+        }
 
+        if (Mathf.Abs(transform.position.x - xRightLimit) > 2.5f)
+        {
+            xRightLimit = transform.position.x + 2.5f;
+        }
+
+        xRightLimit -= transform.position.x;
+        xLeftLimit -= transform.position.x;
 
         gameObject.transform.parent.FindChild("TriggerL").transform.localPosition = new Vector2(xLeftLimit, gameObject.transform.parent.FindChild("TriggerL").transform.localPosition.y);
         gameObject.transform.parent.FindChild("TriggerR").transform.localPosition = new Vector2(xRightLimit, gameObject.transform.parent.FindChild("TriggerR").transform.localPosition.y);
-
-        Debug.Log("Salut");
-        Debug.Log(xLeftLimit + " " + xRightLimit);
     }
 }

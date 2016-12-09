@@ -3,8 +3,15 @@ using System.Collections;
 
 public class Marchand : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    Sprite spriteSmall;
+    [SerializeField]
+    Sprite spriteMedium;
+    [SerializeField]
+    Sprite spriteBig;
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -12,4 +19,13 @@ public class Marchand : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    void load()
+    {
+        string path = "marchand/";
+        path += GameManager.instance.getPlayer().getEthnie().ToString();
+        spriteSmall = Resources.Load(path+"/small") as Sprite;
+        spriteMedium = Resources.Load(path+"/medium") as Sprite;
+        spriteBig = Resources.Load(path+"/big") as Sprite;
+    }
 }

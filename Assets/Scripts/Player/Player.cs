@@ -21,6 +21,7 @@ public class Player {
         //writeFile(getEthnieString() , getBodyString(), getHandicapString(), getGenderString(),getSexualityString());
         randomPlayer();
         SceneManager.LoadScene("Description");
+        GameManager.instance.getAudioManager().LaunchThemeMenu();
         SaveLoad.Load();
     }
 

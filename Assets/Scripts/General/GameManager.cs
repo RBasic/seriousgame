@@ -97,4 +97,9 @@ public class GameManager : MonoBehaviour
     {
         return AM;
     }
+
+    public void openMarchand()
+    {
+       // GameObject.Find("Canvas")
+    }
 }

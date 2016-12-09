@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Marchand : MonoBehaviour {
 
     [SerializeField]
-    Sprite spriteSmall;
+    Image spriteSmall;
     [SerializeField]
-    Sprite spriteMedium;
+    Image spriteMedium;
     [SerializeField]
-    Sprite spriteBig;
+    Image spriteBig;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Use this for initialization
     void Start () {
@@ -24,8 +30,8 @@ public class Marchand : MonoBehaviour {
     {
         string path = "marchand/";
         path += GameManager.instance.getPlayer().getEthnie().ToString();
-        spriteSmall = Resources.Load(path+"/small") as Sprite;
-        spriteMedium = Resources.Load(path+"/medium") as Sprite;
-        spriteBig = Resources.Load(path+"/big") as Sprite;
+        spriteSmall.sprite = Resources.Load(path+"/small") as Sprite;
+        spriteMedium.sprite = Resources.Load(path+"/medium") as Sprite;
+        spriteBig.sprite = Resources.Load(path+"/big") as Sprite;
     }
 }

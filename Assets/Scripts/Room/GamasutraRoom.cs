@@ -59,7 +59,7 @@ public class GamasutraRoom : MonoBehaviour
         {
             foreach (Transform go in this.spawn.GetComponentsInChildren<Transform>(true))
             {
-                if (go != spawn)
+                if (go.localPosition != spawn.transform.localPosition)
                 {
                     listSpawn.Add(go.gameObject);
                 }
@@ -851,12 +851,10 @@ public class GamasutraRoom : MonoBehaviour
     public Vector2 getSize()
     {
        return new Vector2(x * (width - 1), y * (heigh - 1));
-
     }
 
     void makeEnemySpawn()
     {
-        
         int nbEnemy = Random.Range(1, listSpawn.Count); // at least one enemy
         Debug.Log("nbenemy : "+nbEnemy);
         while (nbEnemy!=0)
@@ -865,7 +863,6 @@ public class GamasutraRoom : MonoBehaviour
             GameObject enemy = Instantiate(GameManager.instance.getPrefabEnemy());
             enemy.transform.SetParent(this.gameObject.transform);
             enemy.transform.localPosition = listSpawn[indexEnemy].transform.localPosition;
-            Debug.Log("Ennemi à la position locale: " + enemy.transform.localPosition + ", globale: " + enemy.transform.position);
             listEnemies.Add(enemy);
             listSpawn.RemoveAt(indexEnemy);
             nbEnemy--;

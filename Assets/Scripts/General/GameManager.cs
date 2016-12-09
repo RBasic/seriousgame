@@ -10,7 +10,12 @@ public class GameManager : MonoBehaviour
     private Player p;
     private AudioManager AM;
     private GameObject currentRoom;
-
+    [Header("Marchand")]
+    [SerializeField]
+    private GameObject marchand;
+    [SerializeField]
+    private GameObject panelMarchand;
+    [Header("Enemies")]
     [SerializeField] GameObject prefabEnemy;
 
     [Header("MonyMoney")]
@@ -91,5 +96,10 @@ public class GameManager : MonoBehaviour
     public AudioManager getAudioManager()
     {
         return AM;
+    }
+
+    public void openMarchand()
+    {
+       // GameObject.Find("Canvas")
     }
 }

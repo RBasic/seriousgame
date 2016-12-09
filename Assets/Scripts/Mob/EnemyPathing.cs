@@ -45,6 +45,7 @@ public class EnemyPathing : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        start.y = transform.position.y;
         currentPosition = transform.position;
 
         if (!backing)
@@ -62,7 +63,7 @@ public class EnemyPathing : MonoBehaviour {
             walkAmount.x = basicSpeed * Time.deltaTime;
             if ((lastPosition.x > currentPosition.x && start.x > currentPosition.x) || (lastPosition.x < currentPosition.x && start.x < currentPosition.x))
                 Flip();
-            transform.position = Vector3.MoveTowards(transform.position, start, walkAmount.x);
+            transform.position = Vector2.MoveTowards(transform.position, start, walkAmount.x);
 
             if (Mathf.Abs(transform.position.x - start.x) < 0.5f)
             {

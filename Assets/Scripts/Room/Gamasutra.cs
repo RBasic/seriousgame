@@ -27,6 +27,22 @@ public class Gamasutra : MonoBehaviour
     private GameObject loadingScreen;   // prefab of the corridor
 
 
+    public List<GameObject> roomsBefore;
+    public List<GameObject> roomAfter;
+    void Awake()
+    {
+        _instance = this;
+    }
+
+    public static Gamasutra instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    private static Gamasutra _instance;
+
     void initialize()
     {
         //loadingScreen.SetActive(true);
@@ -52,12 +68,15 @@ public class Gamasutra : MonoBehaviour
     // Use this for initialization
     void Start ()
 	{
+        Debug.Log("START");
         //loadingScreen.SetActive(true);
         createLevel();
+        
     }
 
     void createLevel()
     {
+
         createRooms(nbRoom);                    // create several rooms on the map in a specific perimeter
         
         // add physics to place the elements next to other
@@ -178,14 +197,17 @@ public class Gamasutra : MonoBehaviour
     {
         // start on the element which will be the enter (at the right of the corridor)
         GameObject first = getFirst(); 
-        List<GameObject> roomsBefore = new List<GameObject>(lvlRooms);
-        List<GameObject> roomAfter = new List<GameObject>();
+        roomsBefore = new List<GameObject>(lvlRooms);
+        roomAfter = new List<GameObject>();
         // go on the elements that are accessible
-        first.GetComponent<GamasutraRoom>().getAttainable(roomsBefore, roomAfter); 
+        first.GetComponent<GamasutraRoom>().getAttainable(); 
         // if attainable elements are > 80% ok else restart
         int restRooms = roomAfter.Count;
+        Debug.Log("RESTART ---" + roomAfter.Count + " " + roomsBefore.Count + " " + (int)(percentRoom * nbRoom));
         if (restRooms < (int) (percentRoom*nbRoom))
         {
+
+
             initialize();
             createLevel();
         }
@@ -294,16 +316,21 @@ public class Gamasutra : MonoBehaviour
             higher.GetComponent<Transform>().localPosition = new Vector3(x, yyy - yOffset, z);
             listBufferVertical.Remove(higher);
         }
-        Debug.Log(lvlRooms.Count);
+
         foreach (GameObject l in lvlRooms)
         {
             l.GetComponent<GamasutraRoom>().getColliderSupperpose().enabled = true; // enable the little
         }
+        Debug.Log("COUNT : "+lvlRooms.Count);
         for (int i = 0; i < lvlRooms.Count; i++)
         {
-           lvlRooms[i].GetComponent<GamasutraRoom>().check(lvlRooms);   // check if the room is superpose and alone
+           lvlRooms[i].GetComponent<GamasutraRoom>().checkSupperpose(lvlRooms);   // check if the room is superpose and alone
         }
-
+        for (int i = 0; i < lvlRooms.Count; i++)
+        {
+            lvlRooms[i].GetComponent<GamasutraRoom>().checkSides(lvlRooms);   // check if the room is superpose and alone
+        }
+       
     }
     void createRooms(int nbRooms)
     {

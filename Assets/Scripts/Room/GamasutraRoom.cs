@@ -76,6 +76,7 @@ public class GamasutraRoom : MonoBehaviour
     {
         checkSupperpose(lvlRooms);
         checkSides(lvlRooms);
+
     }
 
     public void checkSupperpose(List<GameObject> lvlRooms)
@@ -188,6 +189,7 @@ public class GamasutraRoom : MonoBehaviour
         {  
             Vector3 originR = new Vector3(center.x+(x),center.y,center.z);
             colliders = Physics2D.OverlapPointAll(originR);
+
             if (colliders.Length > 0)
             {
                 cpt++;
@@ -202,6 +204,7 @@ public class GamasutraRoom : MonoBehaviour
 
             Vector3 originL = new Vector3(center.x - (x), center.y, center.z);
             colliders = Physics2D.OverlapPointAll(originL);
+
             if (colliders.Length > 0)
             {
                 cpt++;
@@ -216,6 +219,7 @@ public class GamasutraRoom : MonoBehaviour
 
             Vector3 originT = new Vector3(center.x , center.y+(y), center.z);
             colliders = Physics2D.OverlapPointAll(originT);
+         
             if (colliders.Length > 0)
             {
                 cpt++;
@@ -230,6 +234,7 @@ public class GamasutraRoom : MonoBehaviour
 
             Vector3 originB = new Vector3(center.x , center.y-(y), center.z);
             colliders = Physics2D.OverlapPointAll(originB);
+         
             if (colliders.Length > 0)
             {
                 cpt++;
@@ -571,13 +576,12 @@ public class GamasutraRoom : MonoBehaviour
         }
     }
 
-    public void getAttainable(List<GameObject> roomsBefore , List<GameObject> roomAfter )
+    public void getAttainable()
     {
-
-        if (roomsBefore.Contains(this.gameObject))
+        if (Gamasutra.instance.roomsBefore.Contains(this.gameObject))
         {
-            roomsBefore.Remove(this.gameObject);
-            roomAfter.Add(this.gameObject);
+            Gamasutra.instance.roomsBefore.Remove(this.gameObject);
+            Gamasutra.instance.roomAfter.Add(this.gameObject);
 
             // center of the element
             Vector3 center = this.GetComponent<Transform>().localPosition;
@@ -590,30 +594,37 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originL);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                   
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
+               
                 Vector3 originR = new Vector3(center.x - (x), center.y, center.z);
                 colliders = Physics2D.OverlapPointAll(originR);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                   
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
+            
 
                 Vector3 originT = new Vector3(center.x, center.y + (y), center.z);
                 colliders = Physics2D.OverlapPointAll(originT);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                  
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
+               
 
                 Vector3 originB = new Vector3(center.x, center.y - (y), center.z);
                 colliders = Physics2D.OverlapPointAll(originB);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
-
+               
             }
             // big square
             else if (heigh == 2 && width == 2)
@@ -624,7 +635,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originTL);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Top Right
@@ -632,7 +643,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originTR);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Right Top
@@ -640,7 +651,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originRT);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Right Bottom
@@ -648,7 +659,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originRB);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Bottom Right
@@ -656,7 +667,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originBR);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Bottom Left
@@ -664,7 +675,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originBL);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Left Bottom
@@ -672,7 +683,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originLB);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Left Top
@@ -680,7 +691,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originLT);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
             }
@@ -692,7 +703,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originTL);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Top Right
@@ -700,7 +711,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originTR);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Right
@@ -708,7 +719,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originR);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Bottom Right
@@ -716,7 +727,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originBR);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Bottom Left
@@ -724,7 +735,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originBL);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Left
@@ -732,7 +743,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originL);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
             }
@@ -744,7 +755,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originT);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Right Top
@@ -752,7 +763,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originRT);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Right Bottom
@@ -760,7 +771,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originRB);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Bottom
@@ -768,7 +779,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originB);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Left Bottom
@@ -776,7 +787,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originLB);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
                 //Left Top
@@ -784,7 +795,7 @@ public class GamasutraRoom : MonoBehaviour
                 colliders = Physics2D.OverlapPointAll(originLT);
                 if (colliders.Length > 0)
                 {
-                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable(roomsBefore,roomAfter);
+                    colliders[0].GetComponentInParent<GamasutraRoom>().getAttainable();
                 }
 
             }

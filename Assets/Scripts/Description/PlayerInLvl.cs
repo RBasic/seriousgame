@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerInLvl : MonoBehaviour {
 
     /*
-*@brief : laucnh the game when the player go in the roms
+*@brief : laucnh the game when the player go in the rooms
 */
     public void playerInRooms()
     {

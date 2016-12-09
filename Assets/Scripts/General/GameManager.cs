@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject player;
     private Player p;
+    private AudioManager AM;
     private GameObject currentRoom;
 
     [SerializeField] GameObject prefabEnemy;
@@ -82,4 +83,8 @@ public class GameManager : MonoBehaviour
         return prefabEnemy;
     }
 
+    public AudioManager getAudioManager()
+    {
+        return AM;
+    }
 }

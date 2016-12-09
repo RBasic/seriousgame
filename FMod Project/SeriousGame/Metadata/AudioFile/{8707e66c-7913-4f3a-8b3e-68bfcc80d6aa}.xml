@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{8707e66c-7913-4f3a-8b3e-68bfcc80d6aa}">
+        <property name="assetPath">
+            <value>Music/Theme-Arabic.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>130.06367346938777</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{162190b6-5194-40a1-a043-7f77f9bc29e5}</destination>
+        </relationship>
+    </object>
+</objects>

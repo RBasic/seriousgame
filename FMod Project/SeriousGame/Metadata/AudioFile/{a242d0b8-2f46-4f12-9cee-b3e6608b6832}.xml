@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{a242d0b8-2f46-4f12-9cee-b3e6608b6832}">
         <property name="assetPath">
-            <value>wind attack.mp3</value>
+            <value>FX/wind attack.mp3</value>
         </property>
         <property name="frequencyInKHz">
             <value>48</value>

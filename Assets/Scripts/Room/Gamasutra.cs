@@ -205,8 +205,6 @@ public class Gamasutra : MonoBehaviour
         Debug.Log("RESTART ---" + roomAfter.Count + " " + roomsBefore.Count + " " + (int)(percentRoom * nbRoom));
         if (restRooms < (int) (percentRoom*nbRoom))
         {
-
-
             initialize();
             createLevel();
         }
@@ -333,13 +331,27 @@ public class Gamasutra : MonoBehaviour
         }
        
     }
+
     void createRooms(int nbRooms)
     {
+        List<GameObject> listPotentialShopRooms = new List<GameObject>();
+
         for (int i = 0; i < nbRooms; i++)
         {
             GameObject s = (GameObject) Instantiate(rooms[Random.Range(0, rooms.Count)], this.transform);
             s.GetComponent<Transform>().localPosition = getRandomPointInEllipse(90,2);//getRandomPointInCircle(1.0f);
             lvlRooms.Add(s);
+
+            if (s.name == "1x1(Clone)")
+            {
+                listPotentialShopRooms.Add(s);
+            }
+        }
+
+        if (listPotentialShopRooms.Count > 0)
+        {
+            int i = Random.Range(0, listPotentialShopRooms.Count);
+            listPotentialShopRooms[i].GetComponent<GamasutraRoom>().setIsShopRoom(true);
         }
     }
 

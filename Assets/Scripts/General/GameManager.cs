@@ -102,4 +102,9 @@ public class GameManager : MonoBehaviour
     {
        // GameObject.Find("Canvas")
     }
+
+    public GameObject getPrefabMarchand()
+    {
+        return marchand;
+    }
 }

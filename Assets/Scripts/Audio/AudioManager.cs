@@ -55,31 +55,28 @@ public class AudioManager : MonoBehaviour {
     public void LaunchMenuTheme()
     {
         releaseAll();
-        boss.start();
+        menu.start();
     }
 
     public void LaunchTheme()
     {
-        string e = GameManager.instance.getPlayer().getEthnieString();
-        switch(e)
+        string e = GameManager.instance.getPlayer().getEthnie().ToString();
+        releaseAll();
+        switch (e)
         {
             case "white":
-                releaseAll();
                 white.start();
                 break;
 
             case "asian":
-                releaseAll();
                 asian.start();
                 break;
 
             case "black":
-                releaseAll();
                 africa.start();
                 break;
 
             case "arab":
-                releaseAll();
                 arabic.start();
                 break;
         }

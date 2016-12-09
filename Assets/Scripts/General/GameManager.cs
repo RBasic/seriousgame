@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         _instance = this;
         p = new Player();
+        AM = GetComponent<AudioManager>();
     }
 
     public static GameManager instance
@@ -38,7 +39,11 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager _instance;
 
-  
+    void Start()
+    {
+        instance.getAudioManager().LaunchMenuTheme();
+    }
+
     /*
     *@brief : all the functions call when the player tap play
     */

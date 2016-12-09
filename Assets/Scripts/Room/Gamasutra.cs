@@ -45,7 +45,7 @@ public class Gamasutra : MonoBehaviour
 
     void initialize()
     {
-        //loadingScreen.SetActive(true);
+        loadingScreen.SetActive(true);
 
         while (lvlRooms.Count != 0)
         {
@@ -122,7 +122,6 @@ public class Gamasutra : MonoBehaviour
                 align = true;                   // when every alement are align
                 alignRooms();                   // align the element on a grid
                 checkAttainable();              // check if all elements are attainable and remove the non attainable
-                loadingScreen.SetActive(false);
                 
             }
         }
@@ -242,6 +241,8 @@ public class Gamasutra : MonoBehaviour
                 GameObject.Find("Main Camera").GetComponent<CamFollow>().player = player.transform;
                 GameObject.Find("MiniMapCamera").GetComponent<CamFollow>().player = player.transform;
                 GameObject.Find("MiniMapCamera").GetComponent<CamFollow>().setMinimap(true);
+                loadingScreen.SetActive(false);
+
 
             }
         }

@@ -865,6 +865,7 @@ public class GamasutraRoom : MonoBehaviour
             GameObject enemy = Instantiate(GameManager.instance.getPrefabEnemy());
             enemy.transform.SetParent(this.gameObject.transform);
             enemy.transform.localPosition = listSpawn[indexEnemy].transform.localPosition;
+            Debug.Log("Ennemi à la position locale: " + enemy.transform.localPosition + ", globale: " + enemy.transform.position);
             listEnemies.Add(enemy);
             listSpawn.RemoveAt(indexEnemy);
             nbEnemy--;

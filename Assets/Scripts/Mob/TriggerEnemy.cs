@@ -12,9 +12,10 @@ public class TriggerEnemy : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update ()
+    {
+        transform.position = new Vector2(transform.position.x, _enemy.transform.position.y + 1);
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

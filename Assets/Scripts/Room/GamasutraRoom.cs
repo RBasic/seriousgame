@@ -15,12 +15,15 @@ public class GamasutraRoom : MonoBehaviour
 
     public GameObject checkSide;
 
+    private bool isShopRoom;
+    
 
     [Header("Inside")]
     public GameObject insidePrefab;
     GameObject inside;
     [SerializeField] private GameObject spawn;
     private List<GameObject> listSpawn = new List<GameObject>();
+    [SerializeField] private GameObject spawnShop;
     private bool alreadySpawn = false;
     private List<GameObject> listEnemies = new List<GameObject>();
 
@@ -66,6 +69,8 @@ public class GamasutraRoom : MonoBehaviour
             }
         }
     }
+
+    public void setIsShopRoom(bool b) { isShopRoom = b; }
 
     public BoxCollider2D getColliderSupperpose()
     {
@@ -847,7 +852,11 @@ public class GamasutraRoom : MonoBehaviour
         if (state && listSpawn.Count != 0 && !alreadySpawn)
         {
             Debug.Log("ici");
-            makeEnemySpawn();
+
+            if (isShopRoom)
+                makeShopSpawn();
+            else
+                makeEnemySpawn();
         }
         miniMap.SetActive(state);
     }
@@ -878,6 +887,15 @@ public class GamasutraRoom : MonoBehaviour
             listSpawn.RemoveAt(indexEnemy);
             nbEnemy--;
         }
+        alreadySpawn = true;
+    }
+
+    void makeShopSpawn()
+    {
+        GameObject shop = Instantiate(GameManager.instance.getPrefabMarchand());
+        shop.transform.SetParent(this.gameObject.transform);
+        shop.transform.localPosition = spawnShop.transform.localPosition;
+
         alreadySpawn = true;
     }
 

@@ -17,9 +17,12 @@ public class GameManager : MonoBehaviour
     private GameObject panelMarchand;
     [Header("Enemies")]
     [SerializeField] GameObject prefabEnemy;
+    private GameObject instanceMarchand;
 
     [Header("MonyMoney")]
     [SerializeField] private Text panelSousous;
+
+    private bool isPaused = false;
     private int moneyMoney = 0;
 
     void Awake()
@@ -42,6 +45,23 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance.getAudioManager().LaunchMenuTheme();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            setPause(!isPaused);
+        }
+
+        if(isPaused)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 
     /*
@@ -103,8 +123,39 @@ public class GameManager : MonoBehaviour
        // GameObject.Find("Canvas")
     }
 
+    public void addCoin(int nb)
+    {
+        moneyMoney += nb;
+        panelSousous.text = "Money : " + moneyMoney;
+    }
+
     public GameObject getPrefabMarchand()
     {
         return marchand;
+    }
+    
+    public GameObject getPanelMarchand()
+    {
+        return panelMarchand;
+    }
+
+    public void setInstanceMarchand(GameObject g)
+    {
+        instanceMarchand = g;
+    }
+
+    public GameObject getInstanceMarchand()
+    {
+        return instanceMarchand;
+    }
+
+    public void setPause(bool b)
+    {
+        isPaused = b;
+    }
+
+    public bool getPause()
+    {
+        return isPaused;
     }
 }

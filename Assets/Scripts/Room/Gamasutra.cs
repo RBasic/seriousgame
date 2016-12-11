@@ -240,8 +240,6 @@ public class Gamasutra : MonoBehaviour
                 GameObject.Find("MiniMapCamera").GetComponent<CamFollow>().player = player.transform;
                 GameObject.Find("MiniMapCamera").GetComponent<CamFollow>().setMinimap(true);
                 loadingScreen.SetActive(false);
-
-
             }
         }
     }

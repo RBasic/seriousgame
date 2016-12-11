@@ -60,7 +60,7 @@ public class CSVReader : MonoBehaviour
         }
         
         /*DEBUG*/
-        
+        /*
         foreach(string s in menDialogues.Keys)
         {
             foreach(string ss in menDialogues[s].Keys)
@@ -75,7 +75,7 @@ public class CSVReader : MonoBehaviour
             {
                 Debug.Log(s + " " + ss + " " + womenDialogues[s][ss][0]);
             }
-        }
+        }*/
         
 
     }

@@ -63,6 +63,9 @@ public class selection : MonoBehaviour {
                 GetComponentInParent<StartOptions>().StartButtonClicked();
                 GameManager.instance.launchGame();
                 gameObject.SetActive(false);
+                onPlay = false;
+                onOptions = false;
+                onQuit = false;
             }
             else if (onOptions)
             {

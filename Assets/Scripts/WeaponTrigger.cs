@@ -3,7 +3,6 @@ using System.Collections;
 
 public class WeaponTrigger : MonoBehaviour
 {
-
     public GameObject coin;
     private Animator Anim;
     // Use this for initialization
@@ -20,19 +19,26 @@ public class WeaponTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy" && Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+
+        Debug.Log("collide avec " + other);
+        if (other.tag == "Enemy")
         {
-            int nb = 10;
-            if (!GameManager.instance.getPlayer().getGender())
+            Debug.Log("1 : " + other);
+            if (Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
-                nb = 8;
+                Debug.Log("2 : " + other);
+                int nb = 10;
+                if (!GameManager.instance.getPlayer().getGender())
+                {
+                    nb = 8;
+                }
+                else if (GameManager.instance.getPlayer().getEthnie().ToString() == "arab")
+                {
+                    nb = 12;
+                }
+                Instantiate(coin, other.transform.position, other.transform.rotation);
+                Destroy(other.gameObject.transform.parent.gameObject);
             }
-            else if (GameManager.instance.getPlayer().getEthnie().ToString() == "arab")
-            {
-                nb = 12;
-            }
-            Instantiate(coin, other.transform.position, other.transform.rotation);
-            Destroy(other.gameObject.transform.parent.gameObject);
         }
     }
 }

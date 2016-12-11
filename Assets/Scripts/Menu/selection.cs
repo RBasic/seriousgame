@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class selection : MonoBehaviour {
 
     bool onPlay = true;
     bool onOptions = false;
     bool onQuit = false;
+    public GameObject play;
+    public GameObject options;
+    public GameObject quit;
 	// Use this for initialization
 	void Start () {
 	
@@ -17,19 +20,22 @@ public class selection : MonoBehaviour {
         {
             if (onPlay)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, -100f, 0);
+                play.GetComponent<Image>().enabled = false;
+                options.GetComponent<Image>().enabled = true;
                 onPlay = false;
                 onOptions = true;
             }
            else if(onOptions)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, -130f, 0);
+                options.GetComponent<Image>().enabled = false;
+                quit.GetComponent<Image>().enabled = true;
                 onOptions = false;
                 onQuit = true;
             }
             else if (onQuit)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, -70f, 0);
+                quit.GetComponent<Image>().enabled = false;
+                play.GetComponent<Image>().enabled = true;
                 onQuit = false;
                 onPlay = true;
             }
@@ -38,19 +44,22 @@ public class selection : MonoBehaviour {
         {
             if (onPlay)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, -130f, 0);
+                play.GetComponent<Image>().enabled = false;
+                quit.GetComponent<Image>().enabled = true;
                 onPlay = false;
                 onQuit = true;
             }
             else if (onOptions)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, -70f, 0);
+                options.GetComponent<Image>().enabled = false;
+                play.GetComponent<Image>().enabled = true;
                 onOptions = false;
                 onPlay = true;
             }
             else if (onQuit)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, -100f, 0);
+                quit.GetComponent<Image>().enabled = false;
+                options.GetComponent<Image>().enabled = true;
                 onQuit = false;
                 onOptions = true;
             }

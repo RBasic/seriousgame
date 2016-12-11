@@ -22,7 +22,6 @@ public class CSVReader : MonoBehaviour
     public void loadCSV()
     {
      
-
         string fileData = System.IO.File.ReadAllText("Assets\\dialogues.csv");
         string[] lines = fileData.Split("\n"[0]);                   // all the line separatly
 
@@ -66,9 +65,10 @@ public class CSVReader : MonoBehaviour
         {
             foreach(string ss in menDialogues[s].Keys)
             {
-               Debug.Log(s+" "+ss+" "+menDialogues[s][ss][0]);
+               Debug.Log(s+" "+ss+" "+menDialogues[s][ss][0]+" "+menPriorities[s][ss]);
             }
         }
+        
         foreach (string s in womenDialogues.Keys)
         {
             foreach (string ss in womenDialogues[s].Keys)

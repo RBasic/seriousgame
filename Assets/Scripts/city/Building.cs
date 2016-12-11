@@ -12,6 +12,17 @@ public class Building : MonoBehaviour {
     Building up;
     [SerializeField]
     Building down;
+    [SerializeField]
+    string textIsBuy;
+    [SerializeField]
+    string textJustBuying;
+    [SerializeField]
+    string textIsSelectedBeforeMoney;
+    [SerializeField]
+    int cost;
+    [SerializeField]
+    string textIsSelectedAfterMoney;
+
 
     bool isBuy = false;
     bool isSelected;
@@ -22,37 +33,43 @@ public class Building : MonoBehaviour {
         changeOpacity(state);
     }
 
-    void changeOpacity(bool state)
+    public void changeOpacityNoSeleted()
     {
         Color c = GetComponent<Image>().color;
-        if (state)
-            c.a = 1.0f;
+        if (isBuy)
+        {
+            c.a -= 0.2f;
+        }
         else
-            c.a = 0.0f;
+        {
+            c.a= 0.0f;
+        }
         GetComponent<Image>().color = c;
+    }
+
+    public void changeOpacitySelected()
+    {
+        if (!isBuy)
+        {
+            StartCoroutine(flashing());
+        }
+        else
+        {
+            StopCoroutine(flashing());
+            changeOpacity(true);
+        }
     }
 
     public void setIsSelected(bool state)
     {
         isSelected = state;
-        // si selected and no buy : flashing
-        if (state && !isBuy)
-            StartCoroutine(flashing());
-        // si selected et buy : rien
-        // si pas selected et buy : rien
-        // si pas selectd et pas buy : eteindre
-        else if (!isSelected && !isBuy)
-        {
-            StopCoroutine(flashing());
-            changeOpacity(false);
-        }
-        
+     
     }
 
     IEnumerator flashing()
     {
         bool state = true;
-        while (isSelected)
+        while (isSelected && !isBuy)
         {
             changeOpacity(state);
             yield return new WaitForSeconds(0.5f);
@@ -60,6 +77,19 @@ public class Building : MonoBehaviour {
         }
     }
 
+    void changeOpacity(bool state)
+    {
+        Color c = GetComponent<Image>().color;
+        if (state)
+        {
+            c.a = 1.0f;
+        }
+        else
+        {
+            c.a = 0.0f;
+        }
+        GetComponent<Image>().color = c;
+    }
     public Building getLeft()
     {
         return left;
@@ -68,5 +98,35 @@ public class Building : MonoBehaviour {
     public Building getRight()
     {
         return right;
+    }
+
+    public string getText()
+    {
+        string s = "";
+        if (isBuy)
+        {
+            s += textIsBuy;
+        }
+        else
+        {
+            s += textIsSelectedBeforeMoney;
+            s += " ";
+            s += cost.ToString();
+            s += " ";
+            s += textIsSelectedAfterMoney;
+        }
+        return s;
+    }
+
+    public string getTextJustBuying()
+    {
+        string s = "";
+        s += textJustBuying;
+        return s;
+    }
+
+    public bool getIsBuy()
+    {
+        return isBuy;
     }
 }

@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour
     public float idleTime = 10.0f;
 
     Animator anim;
+    private bool isShopping = false;
+    private GameObject shop;
 
     void Start()
     {
@@ -29,62 +31,99 @@ public class PlayerMove : MonoBehaviour
         anim.SetBool("ground", grounded);
         anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
         float move = Input.GetAxis("Horizontal");
-        anim.SetFloat("speed", Mathf.Abs(move));
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxspeed, GetComponent<Rigidbody2D>().velocity.y);
 
-        if (move > 0 && !facingRight)
+        if (!isShopping)
         {
-            flip();
-        }
-        else if (move < 0 && facingRight)
-        {
-            flip();
-        }
+            anim.SetFloat("speed", Mathf.Abs(move));
+            GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxspeed, GetComponent<Rigidbody2D>().velocity.y);
 
-        if (anim.GetFloat("speed") != 0)
-        {
-            timer = 0.0f;
-        }
-        timer += Time.deltaTime;
-        //Debug.Log("timer = " + timer);
-        if (timer > idleTime)
-        {
-            anim.SetBool("wait", true);
-            timer = 0.0f;
-        }
-        else
-        {
-            anim.SetBool("wait", false);
-        }
-
-        if (grounded && Input.GetButtonDown("Jump"))
-        {
-            if (Input.GetAxis("Vertical") < 0 && collided)
+            if (move > 0 && !facingRight)
             {
-                //Debug.Log("je suis la !");
-                StartCoroutine(wait1sec());
+                flip();
             }
-            anim.SetBool("ground", false);
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            else if (move < 0 && facingRight)
+            {
+                flip();
+            }
+
+            if (anim.GetFloat("speed") != 0)
+            {
+                timer = 0.0f;
+            }
+            timer += Time.deltaTime;
+            //Debug.Log("timer = " + timer);
+            if (timer > idleTime)
+            {
+                anim.SetBool("wait", true);
+                timer = 0.0f;
+            }
+            else
+            {
+                anim.SetBool("wait", false);
+            }
+
+            if (grounded && Input.GetButtonDown("Jump"))
+            {
+                if (Input.GetAxis("Vertical") < 0 && collided)
+                {
+                    //Debug.Log("je suis la !");
+                    StartCoroutine(wait1sec());
+                }
+                anim.SetBool("ground", false);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            }
+
+            if (!grounded && !Input.GetButton("Jump") && GetComponent<Rigidbody2D>().velocity.y > 0)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -1), ForceMode2D.Impulse);
+            }
+
+            if (GetComponent<Rigidbody2D>().velocity.y < maxfall)
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, maxfall);
+            }
+
+            if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                anim.SetBool("attack", true);
+            }
+            else
+            {
+                anim.SetBool("attack", false);
+            }
         }
 
-        if (!grounded && !Input.GetButton("Jump") && GetComponent<Rigidbody2D>().velocity.y > 0)
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -1), ForceMode2D.Impulse);
-        }
-
-        if (GetComponent<Rigidbody2D>().velocity.y < maxfall)
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, maxfall);
-        }
-
-        if( Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            anim.SetBool("attack", true);
-        }
         else
         {
-            anim.SetBool("attack", false);
+            anim.SetFloat("speed", Mathf.Abs(0.0f));
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (shop == null)
+            {
+                shop = GameManager.instance.getInstanceMarchand();
+                Debug.Log("Shop instancié");
+            }
+
+            if (this.gameObject.GetComponent<BoxCollider2D>().bounds.Intersects(shop.GetComponent<BoxCollider2D>().bounds))
+            {
+                this.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                Debug.Log("MARCHAND ICI , " + Vector2.Distance(this.transform.position, shop.transform.localPosition));
+                Debug.Log("Player: " + this.transform.position + " " + this.transform.localPosition + " , Marchand: " + shop.transform.position + " " + shop.transform.localPosition);
+
+                if (!isShopping)
+                {
+                    GameManager.instance.getPanelMarchand().SetActive(true);
+                    isShopping = true;
+                }
+
+                else
+                {
+                    GameManager.instance.getPanelMarchand().SetActive(false);
+                    isShopping = false;
+                }
+            }
         }
 
     }

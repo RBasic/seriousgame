@@ -895,6 +895,7 @@ public class GamasutraRoom : MonoBehaviour
         GameObject shop = Instantiate(GameManager.instance.getPrefabMarchand());
         shop.transform.SetParent(this.gameObject.transform);
         shop.transform.localPosition = spawnShop.transform.localPosition;
+        GameManager.instance.setInstanceMarchand(shop);
 
         alreadySpawn = true;
     }

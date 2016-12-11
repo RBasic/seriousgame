@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private GameObject panelMarchand;
     [Header("Enemies")]
     [SerializeField] GameObject prefabEnemy;
+    private GameObject instanceMarchand;
 
     [Header("MonyMoney")]
     [SerializeField] private Text panelSousous;
@@ -131,6 +132,21 @@ public class GameManager : MonoBehaviour
     public GameObject getPrefabMarchand()
     {
         return marchand;
+    }
+    
+    public GameObject getPanelMarchand()
+    {
+        return panelMarchand;
+    }
+
+    public void setInstanceMarchand(GameObject g)
+    {
+        instanceMarchand = g;
+    }
+
+    public GameObject getInstanceMarchand()
+    {
+        return instanceMarchand;
     }
 
     public void setPause(bool b)

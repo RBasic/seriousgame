@@ -37,8 +37,8 @@ public class FXPlayer : MonoBehaviour {
 
         a = FMODUnity.RuntimeManager.CreateInstance(attack);
 
-
         Anim = GameObject.Find("body").GetComponent<Animator>();
+
     }
 	
 	// Update is called once per frame

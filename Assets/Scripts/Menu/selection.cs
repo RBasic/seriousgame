@@ -17,19 +17,19 @@ public class selection : MonoBehaviour {
         {
             if (onPlay)
             {
-                transform.position = new Vector3(transform.position.x, -2.8f, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x, -100f, 0);
                 onPlay = false;
                 onOptions = true;
             }
            else if(onOptions)
             {
-                transform.position = new Vector3(transform.position.x, -3.5f, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x, -130f, 0);
                 onOptions = false;
                 onQuit = true;
             }
             else if (onQuit)
             {
-                transform.position = new Vector3(transform.position.x, -1.9f, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x, -70f, 0);
                 onQuit = false;
                 onPlay = true;
             }
@@ -38,19 +38,19 @@ public class selection : MonoBehaviour {
         {
             if (onPlay)
             {
-                transform.position = new Vector3(transform.position.x, -3.5f, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x, -130f, 0);
                 onPlay = false;
                 onQuit = true;
             }
             else if (onOptions)
             {
-                transform.position = new Vector3(transform.position.x, -1.9f, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x, -70f, 0);
                 onOptions = false;
                 onPlay = true;
             }
             else if (onQuit)
             {
-                transform.position = new Vector3(transform.position.x, -2.8f, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x, -100f, 0);
                 onQuit = false;
                 onOptions = true;
             }

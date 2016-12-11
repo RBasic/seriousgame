@@ -1,7 +1,7 @@
 Mob,boss,priority,model,priority,jeunes,priority,profs,priority,politique,priority
 Noir,Le ménage est fait ?/La grande famille va bien ?,1,Coucou toi <3,0,Wesh gros/Bien ou bien,0,tu vas réussir  dans la vie,1,augmentation des allocs,1
 Blanc,Bonjour/Bonne journée,0,Coucou toi <3,0,T'as du crédit ?,1,zero sur ta vie,1,moins d'impôts,1
-Asiatique,Il était bon le riz?,0,Coucou toi <3,0,OH Jacky Chan !,1,interro surprise random capacité intello,1,travailler plus pour gagner plus,1
+Asiatique,Il était bon le riz?,1,Coucou toi <3,0,OH Jacky Chan !,1,interro surprise random capacité intello,1,travailler plus pour gagner plus,1
 Arabe,C’est bientôt la fête des gâteaux ? Vous m’en apporterez ?,1,Coucou toi <3,0,Fraté ! ,0,à voir,1,augmentation des allocs,1
 Handicapé,Merci les quotas...,1,ew,1,Ca roule ?,0,à voir,1,Augmentation des subventions,1
 Valide,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1

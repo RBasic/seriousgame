@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour {
 
     [FMODUnity.EventRef]
 
+    int type = 0;
+
     public string menuTheme = "event:/Serious Game/Music/Menu";
     public string themeWhite = "event:/Serious Game/Music/ThemeWhite";
     public string themeAsian = "event:/Serious Game/Music/ThemeAsian";
@@ -13,12 +15,24 @@ public class AudioManager : MonoBehaviour {
     public string themeArabic = "event:/Serious Game/Music/ThemeArabic";
     public string themeBoss = "event:/Serious Game/Music/Boss";
 
+    public string paused = "snapshot:/Pause";
+    public string lowReverb = "snapshot:/LowReverb";
+    public string midReverb = "snapshot:/MidReverb";
+    public string highReverb = "snapshot:/HighReverb";
+
+
     FMOD.Studio.EventInstance menu;
     FMOD.Studio.EventInstance white;
     FMOD.Studio.EventInstance arabic;
     FMOD.Studio.EventInstance africa;
     FMOD.Studio.EventInstance asian;
     FMOD.Studio.EventInstance boss;
+
+    FMOD.Studio.EventInstance p;
+    FMOD.Studio.EventInstance lr;
+    FMOD.Studio.EventInstance mr;
+    FMOD.Studio.EventInstance hr;
+
 
     private static AudioManager instance;
 
@@ -44,12 +58,60 @@ public class AudioManager : MonoBehaviour {
         white = FMODUnity.RuntimeManager.CreateInstance(themeWhite);
         arabic = FMODUnity.RuntimeManager.CreateInstance(themeArabic);
         boss = FMODUnity.RuntimeManager.CreateInstance(themeBoss);
+        p = FMODUnity.RuntimeManager.CreateInstance(paused);
+        lr = FMODUnity.RuntimeManager.CreateInstance(lowReverb);
+        mr = FMODUnity.RuntimeManager.CreateInstance(midReverb);
+        hr = FMODUnity.RuntimeManager.CreateInstance(highReverb);
 
-	}
-	
-	void Update ()
+
+    }
+
+    void Update ()
     {
+        if(GameManager.instance)
+        {
+            FMOD.Studio.PLAYBACK_STATE state;
+            if (GameManager.instance.getPause())
+            {
+                p.getPlaybackState(out state);
 
+                if (state == FMOD.Studio.PLAYBACK_STATE.STOPPED)
+                {
+                    p.start();
+                }
+            }
+            else
+            {
+                p.getPlaybackState(out state);
+
+                if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+                {
+                    p.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                }
+            }
+
+            if(GameManager.instance.getCurrentRoom() && type != GameManager.instance.getCurrentRoom().GetComponent<GamasutraRoom>().heigh * GameManager.instance.getCurrentRoom().GetComponent<GamasutraRoom>().width)
+            {
+                type = GameManager.instance.getCurrentRoom().GetComponent<GamasutraRoom>().heigh * GameManager.instance.getCurrentRoom().GetComponent<GamasutraRoom>().width;
+                if(type == 1)
+                {
+                    releaseAllReverb();
+                    lr.start();
+                }
+                else if(type == 2)
+                {
+                    releaseAllReverb();
+                    mr.start();
+                }
+                else if(type == 4)
+                {
+                    releaseAllReverb();
+                    hr.start();
+                }
+            }
+        }
+
+        
     }
 
     public void LaunchMenuTheme()
@@ -138,6 +200,32 @@ public class AudioManager : MonoBehaviour {
         if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
             menu.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+    }
+
+    public void releaseAllReverb()
+    {
+        FMOD.Studio.PLAYBACK_STATE state;
+
+        lr.getPlaybackState(out state);
+
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            lr.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
+        mr.getPlaybackState(out state);
+
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            mr.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
+        hr.getPlaybackState(out state);
+
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            hr.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 }

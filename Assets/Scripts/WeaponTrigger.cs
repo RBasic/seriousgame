@@ -15,10 +15,10 @@ public class WeaponTrigger : MonoBehaviour {
 	
 	}
 
-    void OnColliderEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Je suis la ");
-        if(other.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy")
         {
             Instantiate(coin, other.gameObject.transform.position, other.gameObject.transform.rotation);
             Destroy(other.gameObject);

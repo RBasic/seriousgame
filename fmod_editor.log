@@ -5,9 +5,12 @@
 [LOG] SystemI::close                           : Stop all sounds
 [LOG] SystemI::close                           : done.
 
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=8, nSamplesPerSec=96000, nAvgBytesPerSec=3072000, nBlockAlign=32, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x0000063F, SubFormat=00000003-0000-0010-8000-00AA00389B71.
+[LOG] OutputWASAPI::init                       : Output buffer size: 8192 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
+[WRN] SystemI::init                            : Output requires a sample rate of 96000Hz, resampling will occur.
+[LOG] DownMix::init                            : dspbuffersize: 1024  rate: 48000. output speaker mode: 7, input speaker mode 3
+[LOG] DownMix::init                            : done.
 [LOG] Thread::initThread                       : Initializing FMOD mixer thread.  priority 3
 [LOG] Thread::initThread                       : - Stacksize 49152.  Stack pointer 0000000000000000 : usesemaphore = 0 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD mixer thread started
@@ -23,22 +26,25 @@
 [LOG] Thread::initThread                       : - Stacksize 65536.  Stack pointer 0000000000000000 : usesemaphore = 0 : sleeptime = 1
 [LOG] Thread::callback                         : * FMOD Studio bank load thread started
 [LOG] Manager::readBank                        : fileversion = 79, compatVersion = 70 (oldest = 44, newest = 80)
-[LOG] Manager::readBank                        : fileversion = 79, compatVersion = 70 (oldest = 44, newest = 80)
-[LOG] Manager::readBank                        : fileversion = 79, compatVersion = 70 (oldest = 44, newest = 80)
-[LOG] SoundI::release                          : Menu (0000000014F0FF38)
-[LOG] SoundI::release                          : remove stream samples. (0000000014F0FF38)
-[LOG] SoundI::release                          :     Menu (00000000320C65E8)
-[LOG] SoundI::release                          : release subsounds. (0000000014F0FF38)
-[LOG] SoundI::release                          :     Menu (0000000014F0FBF8)
-[LOG] SoundI::release                          : release codec. (0000000014F0FF38)
-[ERR] assert                                   : assertion: 'cont' failed
-[ERR] assert                                   : assertion: 'disconnectOutput(mOutputs[0]->model()->id()) == FMOD_OK' failed
-[WRN] DSPI::release                            : WARNING.  Failed to release because unit is still attached.  Use removeDSP function first.
-[ERR] assert                                   : assertion: 'mDSP->release() == FMOD_OK' failed
+[LOG] LiveUpdate::clientConnected              : client = 000000004291E198
+[LOG] LiveUpdate::readPacket                   : Accepting init message for client 000000004291E198
+[LOG] LiveUpdate::acceptInitPacket             : Client 000000004291E198 connected, entering sync state
+[LOG] Manager::sendConnectTimeHash             : 
+[LOG] LiveUpdate::sendConnectTimeHash          : 
+[LOG] Manager::finishSync                      : 
+[LOG] LiveUpdate::transitionToConnected        : 
+[LOG] SoundI::release                          : Menu (000000002B3F4E28)
+[LOG] SoundI::release                          : remove stream samples. (000000002B3F4E28)
+[LOG] SoundI::release                          :     Menu (0000000000826348)
+[LOG] SoundI::release                          : release subsounds. (000000002B3F4E28)
+[LOG] SoundI::release                          :     Menu (000000002B3F54A8)
+[LOG] SoundI::release                          : release codec. (000000002B3F4E28)
 [LOG] Thread::callback                         : * FMOD Studio update thread finished
 [LOG] Thread::close                            : FMOD Studio update thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio bank load thread finished
 [LOG] Thread::close                            : FMOD Studio bank load thread thread destroyed
+[LOG] LiveUpdate::clientDisconnected           : client = 000000004291E198
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] Thread::callback                         : * FMOD Studio sample load thread finished
 [LOG] Thread::close                            : FMOD Studio sample load thread thread destroyed
@@ -56,7 +62,6 @@
 [LOG] SystemI::close                           : Free software output.
 [LOG] SystemI::close                           : Free emulated output.
 [LOG] SystemI::close                           : Free channel pool.
-[ERR] assert                                   : assertion: 'connectionsRemaining == 0' failed
 [LOG] SystemI::close                           : done.
 
 [LOG] Manager::readBank                        : fileversion = 79, compatVersion = 70 (oldest = 44, newest = 80)
@@ -66,10 +71,6 @@
 [LOG] Manager::readBank                        : fileversion = 79, compatVersion = 70 (oldest = 44, newest = 80)
 [LOG] Manager::readBank                        : fileversion = 79, compatVersion = 70 (oldest = 44, newest = 80)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[ERR] assert                                   : assertion: 'cont' failed
-[ERR] assert                                   : assertion: 'disconnectOutput(mOutputs[0]->model()->id()) == FMOD_OK' failed
-[WRN] DSPI::release                            : WARNING.  Failed to release because unit is still attached.  Use removeDSP function first.
-[ERR] assert                                   : assertion: 'mDSP->release() == FMOD_OK' failed
 [LOG] Thread::callback                         : * FMOD Studio bank load thread finished
 [LOG] Thread::close                            : FMOD Studio bank load thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio sample load thread finished
@@ -88,7 +89,6 @@
 [LOG] SystemI::close                           : Free software output.
 [LOG] SystemI::close                           : Free emulated output.
 [LOG] SystemI::close                           : Free channel pool.
-[ERR] assert                                   : assertion: 'connectionsRemaining == 0' failed
 [LOG] Thread::callback                         : * FMOD nonblocking thread (0) finished
 [LOG] Thread::close                            : FMOD nonblocking thread (0) thread destroyed
 [LOG] Thread::callback                         : * FMOD file thread finished

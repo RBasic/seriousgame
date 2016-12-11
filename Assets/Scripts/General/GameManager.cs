@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     [Header("MonyMoney")]
     [SerializeField] private Text panelSousous;
+
+    private bool isPaused = false;
     private int moneyMoney = 0;
 
     void Awake()
@@ -42,6 +44,23 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance.getAudioManager().LaunchMenuTheme();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            setPause(!isPaused);
+        }
+
+        if(isPaused)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 
     /*
@@ -107,5 +126,20 @@ public class GameManager : MonoBehaviour
     {
         moneyMoney += nb;
         panelSousous.text = "Money : " + moneyMoney;
+    }
+
+    public GameObject getPrefabMarchand()
+    {
+        return marchand;
+    }
+
+    public void setPause(bool b)
+    {
+        isPaused = b;
+    }
+
+    public bool getPause()
+    {
+        return isPaused;
     }
 }

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class camtest : MonoBehaviour {
 
-    public Transform player;
 	// Use this for initialization
 	void Start () {
 	
@@ -11,7 +10,7 @@ public class camtest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 newPosition = new Vector3(player.position.x, player.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 100);
+        //Vector3 newPosition = new Vector3(player.position.x, player.position.y, transform.position.z);
+        //transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 100);
     }
 }

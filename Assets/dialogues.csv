@@ -1,23 +1,23 @@
 Mob,boss,priority,model,priority,jeunes,priority,profs,priority,politique,priority
-black,Le ménage est fait ?/La grande famille va bien ?,1,Coucou toi <3,0,Wesh gros/Bien ou bien,0,tu vas réussir  dans la vie,1,augmentation des allocs,1
-white,Bonjour/Bonne journée,0,Coucou toi <3,0,T'as du crédit ?,1,zero sur ta vie,1,moins d'impôts,1
-asian,Il était bon le riz?,0,Coucou toi <3,0,OH Jacky Chan !,1,interro surprise random capacité intello,1,travailler plus pour gagner plus,1
-arab,C’est bientot la fête des gâteaux ? Vous m’en apporterez ?,1,Coucou toi <3,0,Fraté ! ,0,à voir,1,augmentation des allocs,1
-handicap,Merci les quotas.,1,ew,1,Ca roule ?,0,à voir,1,Augmentation des subventions,1
-no handicap,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
-thin,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
-fat,C'est pas le croissant de trop ?/On a bien mangé ce midi ?,1,Un peu de sport ne te ferait pas de mal./Faudrait penser à bouger ses fesses.,1,à voir,1,à voir,1,moins d'impôts,1
-average,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
-straight,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
-gay,Sois viril un peu !,1,Tu veux être mon meilleur ami ?,0,Sale tapette,1,à voir,1,mariage pour tous,1
-noir,Bonjour/Bonne journée,non,T'as grossi non ?/T'as l'air malade,oui,Wesh gros/Bien ou bien,non,tu vas réussir  dans la vie,1,augmentation des allocs,oui
-blanc,Bonjour/Bonne journée,non,T'as grossi non ?/T'as l'air malade,oui,Wesh gros/Bien ou bien,non,zero sur ta vie,1,moins d'impôts,oui
-asiatique,Bonjour/Bonne journée,non,T'as grossi non ?/T'as l'air malade,oui,Wesh gros/Bien ou bien,non,à voir,1,travailler plus pour gagner plus,oui
-maghrébin,base +  “c’est bientot la fete des gateaux ? vous m’en apporterez ?”,oui,T'as grossi non ?/T'as l'air malade,oui,Wesh gros/Bien ou bien,non,à voir,1,augmentation des allocs,oui
-avec handicap,“merci les quotas”,oui,ew,oui,Wesh gros/Bien ou bien,non,à voir,1,Augmentation des subventions,oui
-sans handicap,Bonjour/Bonne journée,non,T'as grossi non ?/T'as l'air malade,oui,Wesh gros/Bien ou bien,non,à voir,1,moins d'impôts,oui
-mince,C'est pour moi cette tenue ?/Il a de la chance votre mari./Tu vas attirer des clients comme ça.,oui,"""Bonjour""",non,Eh mademoizelle !/C'est pour moi cette tenue ?,oui,à voir,1,moins d'impôts,oui
-gros,C’est pas le croissant de trop ?/On a bien mangé ce midi ?,oui,Un peu de sport ne te ferait pas de mal./Faudrait penser à bouger ses fesses.,oui,à voir,oui,à voir,1,moins d'impôts,oui
-moyen,Bonjour/Bonne journée,non,T'as grossi non ?/T'as l'air malade,oui,Wesh gros/Bien ou bien,non,à voir,1,moins d'impôts,oui
-hétérosexuel,Bonjour/Bonne journée,non,T'as grossi non ?/T'as l'air malade,oui,Wesh gros/Bien ou bien,non,à voir,1,moins d'impôts,oui
-lesbienne,Qui c'est qui fait l'homme ?,oui,"""Bonjour""",non,J'vais te faire changer de bord.,oui,à voir,1,mariage pour tous,oui
+Noir,Le ménage est fait ?/La grande famille va bien ?,1,Coucou toi <3,0,Wesh gros/Bien ou bien,0,tu vas réussir  dans la vie,1,augmentation des allocs,1
+Blanc,Bonjour/Bonne journée,0,Coucou toi <3,0,T'as du crédit ?,1,zero sur ta vie,1,moins d'impôts,1
+Asiatique,Il était bon le riz?,0,Coucou toi <3,0,OH Jacky Chan !,1,interro surprise random capacité intello,1,travailler plus pour gagner plus,1
+Arabe,C’est bientôt la fête des gâteaux ? Vous m’en apporterez ?,1,Coucou toi <3,0,Fraté ! ,0,à voir,1,augmentation des allocs,1
+Handicapé,Merci les quotas...,1,ew,1,Ca roule ?,0,à voir,1,Augmentation des subventions,1
+Valide,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
+Mince,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
+Gros,C'est pas le croissant de trop ?/On a bien mangé ce midi ?,1,Un peu de sport ne te ferait pas de mal./Faudrait penser à bouger ses fesses.,1,à voir,1,à voir,1,moins d'impôts,1
+Moyen,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
+Hétérosexuel,Bonjour/Bonne journée,0,Coucou toi <3,0,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
+Gay,Sois viril un peu !,1,Tu veux être mon meilleur ami ?,0,Sale tapette,1,à voir,1,mariage pour tous,1
+Noire,Bonjour/Bonne journée,0,T'as grossi non ?/T'as l'air malade,1,Wesh gros/Bien ou bien,0,tu vas réussir  dans la vie,1,augmentation des allocs,1
+Blanche,Bonjour/Bonne journée,0,T'as grossi non ?/T'as l'air malade,1,Wesh gros/Bien ou bien,0,zero sur ta vie,1,moins d'impôts,1
+Asiatique,Bonjour/Bonne journée,0,T'as grossi non ?/T'as l'air malade,1,Wesh gros/Bien ou bien,0,à voir,1,travailler plus pour gagner plus,1
+Arabe,“C’est bientot la fete des gateaux ? Vous m’en apporterez ?”,1,T'as grossi non ?/T'as l'air malade,1,Wesh gros/Bien ou bien,0,à voir,1,augmentation des allocs,1
+Handicapée,Merci les quotas...,1,ew,1,Wesh gros/Bien ou bien,0,à voir,1,Augmentation des subventions,1
+Valide,Bonjour/Bonne journée,0,T'as grossi non ?/T'as l'air malade,1,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
+Mince,C'est pour moi cette tenue ?/Il a de la chance votre mari./Tu vas attirer des clients comme ça.,1,"""Bonjour""",0,Eh mademoizelle !/C'est pour moi cette tenue ?,1,à voir,1,moins d'impôts,1
+Grosse,C’est pas le croissant de trop ?/On a bien mangé ce midi ?,1,Un peu de sport ne te ferait pas de mal./Faudrait penser à bouger ses fesses.,1,à voir,1,à voir,1,moins d'impôts,1
+Moyenne,Bonjour/Bonne journée,0,T'as grossi non ?/T'as l'air malade,1,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
+Hétérosexuelle,Bonjour/Bonne journée,0,T'as grossi non ?/T'as l'air malade,1,Wesh gros/Bien ou bien,0,à voir,1,moins d'impôts,1
+Lesbienne,Qui c'est qui fait l'homme ?,1,"""Bonjour""",0,J'vais te faire changer de bord.,1,à voir,1,mariage pour tous,1

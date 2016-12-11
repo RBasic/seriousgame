@@ -1,27 +1,74 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DetectingPlayer : MonoBehaviour {
 
     GameObject enemy;
-
+    TextMesh textShowed;
+    List<string> dialogues = new List<string>();
 	// Use this for initialization
 	void Start ()
     {
 	    enemy = gameObject.transform.parent.gameObject;
+        textShowed = enemy.GetComponentInChildren<TextMesh>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if((enemy.transform.localScale.x < 0)&&(textShowed.transform.localScale.x > 0)){
+            Vector3 temp = textShowed.transform.localScale;
+            temp.x *= -1;
+            textShowed.transform.localScale = temp;
+        }
+        if ((enemy.transform.localScale.x > 0) && (textShowed.transform.localScale.x < 0))
+        {
+            Vector3 temp = textShowed.transform.localScale;
+            temp.x *= -1;
+            textShowed.transform.localScale = temp;
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
         {
-            enemy.GetComponent<EnemyPathing>().setChasingPlayer(true);
-            enemy.GetComponent<EnemyPathing>().setPathing(false);
+            dialogues.Clear();
+            Player p = GameManager.instance.getPlayer();
+            if (CSVReader.instance.getPriority(p.getEthnieString(), "boss", p.getGender()) == 1)
+            {
+                //Debug.Log(CSVReader.instance.getDialog(p.getEthnieString(), "boss", p.getGender()));
+                dialogues.Add(CSVReader.instance.getDialog(p.getEthnieString(), "boss", p.getGender()));
+            }
+            if (CSVReader.instance.getPriority(p.getSexualityString(), "boss", p.getGender()) == 1)
+            {
+               // Debug.Log(CSVReader.instance.getDialog(p.getSexualityString(), "boss", p.getGender()));
+                dialogues.Add(CSVReader.instance.getDialog(p.getSexualityString(), "boss", p.getGender()));
+            }
+            if (CSVReader.instance.getPriority(p.getHandicapString(), "boss", p.getGender()) == 1)
+            {
+                //Debug.Log(CSVReader.instance.getDialog(p.getHandicapString(), "boss", p.getGender()));
+                dialogues.Add(CSVReader.instance.getDialog(p.getHandicapString(), "boss", p.getGender()));
+            }
+            if (CSVReader.instance.getPriority(p.getBodyString(), "boss", p.getGender()) == 1)
+            {
+                //Debug.Log(CSVReader.instance.getDialog(p.getBodyString(), "boss", p.getGender()));
+                dialogues.Add(CSVReader.instance.getDialog(p.getBodyString(), "boss", p.getGender()));
+            }
+            if(dialogues.Count != 0)
+            {
+                enemy.transform.FindChild("body").gameObject.SetActive(false);
+                enemy.transform.FindChild("bodyT").gameObject.SetActive(true);
+                enemy.GetComponent<EnemyPathing>().setChasingPlayer(true);
+                enemy.GetComponent<EnemyPathing>().setPathing(false);
+            }
+            else
+            {
+                dialogues.Add(CSVReader.instance.getDialog(p.getEthnieString(), "boss", p.getGender()));
+            }
+            int rand = Random.Range(0, dialogues.Count);
+            Debug.Log("je dis = " + dialogues[rand]);
+            textShowed.text = dialogues[rand];
         }
     }
 

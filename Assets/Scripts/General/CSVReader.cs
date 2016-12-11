@@ -61,7 +61,7 @@ public class CSVReader : MonoBehaviour
         }
         
         /*DEBUG*/
-        /*
+        
         foreach(string s in menDialogues.Keys)
         {
             foreach(string ss in menDialogues[s].Keys)
@@ -76,7 +76,7 @@ public class CSVReader : MonoBehaviour
                 Debug.Log(s + " " + ss + " " + womenDialogues[s][ss][0]);
             }
         }
-        */
+        
 
     }
 
@@ -87,7 +87,7 @@ public class CSVReader : MonoBehaviour
     * @param player is a woman or a man (man by default)
     * @return the string of the dialog (if several dialog, random)
     */
-    string getDialog(string player, string mob, bool man=true)
+    public string getDialog(string player, string mob, bool man=true)
     {
         string dialog = "";
         Dictionary<string, string[]> outDictionary = new Dictionary<string, string[]>();    // for th try get value
@@ -112,6 +112,26 @@ public class CSVReader : MonoBehaviour
         return dialog;
     }
 
+    public int getPriority(string player, string mob, bool man = true)
+    {
+        Dictionary<string, int> outDictionary = new Dictionary<string, int>();    // for th try get value
+        int prio = 1;    // to get the dialog
+
+        if (man)
+        {
+            menPriorities.TryGetValue(mob, out outDictionary);
+        }
+        else
+        {
+            womenPriorities.TryGetValue(mob, out outDictionary);
+        }
+        if (outDictionary.Count() != 0)    // if the mob name was correct
+        {
+            outDictionary.TryGetValue(player, out prio);
+            Debug.Log("prio = " + prio);
+        }
+        return prio;
+    }
     void Awake()
     {
         if (instance != null)

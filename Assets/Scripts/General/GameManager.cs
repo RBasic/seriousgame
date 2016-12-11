@@ -102,4 +102,10 @@ public class GameManager : MonoBehaviour
     {
        // GameObject.Find("Canvas")
     }
+
+    public void addCoin(int nb)
+    {
+        moneyMoney += nb;
+        panelSousous.text = "Money : " + moneyMoney;
+    }
 }

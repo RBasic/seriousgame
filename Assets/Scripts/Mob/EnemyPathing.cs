@@ -75,6 +75,14 @@ public class EnemyPathing : MonoBehaviour {
         lastPosition = currentPosition;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            GameManager.instance.getPanelLife().GetComponent<HealthPlayer>().loseLifePoint();
+        }
+    }
+
     public bool getChasingPlayer() { return chasingPlayer; }
     public void setChasingPlayer(bool b) { chasingPlayer = b; }
 

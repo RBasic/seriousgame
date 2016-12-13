@@ -104,6 +104,11 @@ public class GameManager : MonoBehaviour
         return player;
     }
 
+    public GameObject getPanelLife()
+    {
+        return panelLife;
+    }
+
     public void setCurrentRoom(GameObject room)
     {
         currentRoom = room;
@@ -179,9 +184,5 @@ public class GameManager : MonoBehaviour
     public GameObject getPanelCity()
     {
         return panelCity;
-    }
-    public GameObject getPanelLife()
-    {
-        return panelLife;
     }
 }

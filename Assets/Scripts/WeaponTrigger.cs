@@ -21,7 +21,7 @@ public class WeaponTrigger : MonoBehaviour
     {
 
         //Debug.Log("collide avec " + other);
-        if (other.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             //Debug.Log("1 : " + other);
             if (Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))

@@ -18,6 +18,7 @@ public class PlayerInLvl : MonoBehaviour {
     public void playerInRooms()
     {
         SceneManager.LoadScene("RoomGeneration");
+        GameManager.instance.getPanelLife().SetActive(true);
         GameManager.instance.getAudioManager().LaunchTheme();
     }
 }

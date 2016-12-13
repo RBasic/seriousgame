@@ -27,9 +27,9 @@ public class SelectionItem : MonoBehaviour
     private int mediumPrice = 25;
     private int bigPrice = 50;
 
-    private int smallHeal = 5;
-    private int mediumHeal = 10;
-    private int bigHeal = 25;
+    private int smallHeal = 1;
+    private int mediumHeal = 2;
+    private int bigHeal = 3;
 
     // Use this for initialization
     void Start()

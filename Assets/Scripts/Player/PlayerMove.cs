@@ -27,12 +27,17 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("ground", grounded);
         anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
         float move = Input.GetAxis("Horizontal");
+        if (GameManager.instance.getPanelCity().activeSelf == true)
+        {
+            this.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
 
-        if (!isShopping)
+        if ((!isShopping)&&(GameManager.instance.getPanelCity().activeSelf == false))
         {
             anim.SetFloat("speed", Mathf.Abs(move));
             GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxspeed, GetComponent<Rigidbody2D>().velocity.y);
@@ -97,7 +102,7 @@ public class PlayerMove : MonoBehaviour
         {
             anim.SetFloat("speed", Mathf.Abs(0.0f));
         }
-
+        
         if (Input.GetKeyDown(KeyCode.B))
         {
             if (shop == null)

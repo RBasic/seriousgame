@@ -19,6 +19,7 @@ public class InteractionBuildings : MonoBehaviour {
 
     void Update()
     {
+
         /*
         foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
         {
@@ -28,14 +29,18 @@ public class InteractionBuildings : MonoBehaviour {
             }
         }
         */
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            GameManager.instance.getPanelCity().SetActive(false);
+        }
         float move = Input.GetAxis("DpadHorizontal");
-        if (!buttonDown && (move == -1 || Input.GetKeyDown("left") || Input.GetKeyDown(KeyCode.LeftArrow)))
+        if (!buttonDown && (move == -1 || Input.GetKeyDown("left") || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q)))
         {
             changeCurrent(currentBuilding.getLeft());
             buttonDown = true;
         }
 
-        else if (!buttonDown && (move == 1 || Input.GetKeyDown("right") || Input.GetKeyDown(KeyCode.RightArrow)))
+        else if (!buttonDown && (move == 1 || Input.GetKeyDown("right") || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)))
         {
             changeCurrent(currentBuilding.getRight());
             buttonDown = true;
@@ -46,7 +51,7 @@ public class InteractionBuildings : MonoBehaviour {
             buttonDown = false;
         }
 
-        else if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Return))
         {
             if (!currentBuilding.getIsBuy())
             {

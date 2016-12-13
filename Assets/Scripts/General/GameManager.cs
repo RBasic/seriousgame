@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
     private GameObject marchand;
     [SerializeField]
     private GameObject panelMarchand;
+    [Header("City")]
+    [SerializeField]
+    private GameObject panelCity;
+    [Header("Life")]
+    [SerializeField]
+    private GameObject panelLife;
     [Header("Enemies")]
     [SerializeField] GameObject prefabEnemy;
     private GameObject instanceMarchand;
@@ -168,5 +174,14 @@ public class GameManager : MonoBehaviour
     public bool getPause()
     {
         return isPaused;
+    }
+
+    public GameObject getPanelCity()
+    {
+        return panelCity;
+    }
+    public GameObject getPanelLife()
+    {
+        return panelLife;
     }
 }

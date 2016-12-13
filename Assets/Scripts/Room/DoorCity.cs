@@ -8,7 +8,7 @@ public class DoorCity : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("city");
+            GameManager.instance.getPanelCity().SetActive(true);
         }
     }
 }

@@ -43,7 +43,7 @@ public class FXPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ground = Anim.GetBool("ground");
+        ground = (Anim.GetBool("ground") && Anim.GetFloat("vSpeed") == 0.0f);
 
         if(!ground)
         {

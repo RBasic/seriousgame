@@ -61,7 +61,7 @@ public class SelectionItem : MonoBehaviour
             //Debug.Log(instanceMarchand.GetComponent<Marchand>().getSpriteSmall());
             //selectionSmall.transform.GetComponentInChildren<Image>().sprite = instanceMarchand.GetComponent<Marchand>().getSpriteSmall().sprite;
             
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 if (feedbackSmall.enabled)
                 {
@@ -84,7 +84,7 @@ public class SelectionItem : MonoBehaviour
                 }
             }
 
-            else if (Input.GetKeyDown(KeyCode.Q))
+            else if (Input.GetKeyDown(KeyCode.Z))
             {
                 if (feedbackMedium.enabled)
                 {
@@ -122,7 +122,7 @@ public class SelectionItem : MonoBehaviour
 
     void BuyItem(int vPrice, int vHeal)
     {
-        Debug.Log("PRIX: " + vPrice);
         GameManager.instance.setMoney(vPrice);
+        GameManager.instance.getPanelLife().GetComponent<HealthPlayer>().gainLifePoint(vHeal);
     }
 }

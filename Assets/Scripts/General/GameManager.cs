@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [Header("Life")]
     [SerializeField]
     private GameObject panelLife;
+    [Header("UI")]
+    [SerializeField] GameObject ui;
     [Header("Enemies")]
     [SerializeField] GameObject prefabEnemy;
     private GameObject instanceMarchand;
@@ -184,5 +186,10 @@ public class GameManager : MonoBehaviour
     public GameObject getPanelCity()
     {
         return panelCity;
+    }
+
+    public GameObject getUI()
+    {
+        return ui;
     }
 }

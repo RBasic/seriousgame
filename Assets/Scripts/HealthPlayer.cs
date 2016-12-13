@@ -52,7 +52,7 @@ public class HealthPlayer : MonoBehaviour
         for (int i = 1; i < nbHearts + 1; i++)
         {
             Vector3 pos = origin.transform.position;
-            pos.x += lifePoints * 20;
+            pos.x += lifePoints * 0.5f;
             GameObject go = (GameObject)Instantiate(heartPrefab, pos, origin.transform.rotation);
             go.transform.SetParent(transform);
             lifePoints++;
@@ -71,7 +71,7 @@ public class HealthPlayer : MonoBehaviour
         for (int i = 0; i < lifePoints; i++)
         {
             Vector3 pos = origin.transform.position;
-            pos.x += i * 20;
+            pos.x += i * 0.5f;
             GameObject go = (GameObject)Instantiate(heartPrefab, pos, origin.transform.rotation);
             go.transform.SetParent(transform);
         }

@@ -19,6 +19,7 @@ public class PlayerInLvl : MonoBehaviour {
     {
         SceneManager.LoadScene("RoomGeneration");
         GameManager.instance.getPanelLife().SetActive(true);
+        GameManager.instance.getUI().GetComponent<Canvas>().worldCamera = Camera.main;
         GameManager.instance.getAudioManager().LaunchTheme();
     }
 }

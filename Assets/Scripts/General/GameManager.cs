@@ -129,6 +129,17 @@ public class GameManager : MonoBehaviour
         panelSousous.text = "Money : " + moneyMoney;
     }
 
+    public int getMoney()
+    {
+        return moneyMoney;
+    }
+
+    public void setMoney(int nb)
+    {
+        moneyMoney -= nb;
+        panelSousous.text = "Money : " + moneyMoney;
+    }
+
     public GameObject getPrefabMarchand()
     {
         return marchand;

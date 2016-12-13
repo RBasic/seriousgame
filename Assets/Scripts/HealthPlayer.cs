@@ -35,6 +35,7 @@ public class HealthPlayer : MonoBehaviour
         else
         {
             GameManager.instance.getPlayer().dead();
+            GameManager.instance.getPanelLife().GetComponent<HealthPlayer>().gainLifePoint(5);
         }
     }
 

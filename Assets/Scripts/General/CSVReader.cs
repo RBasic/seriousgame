@@ -128,7 +128,7 @@ public class CSVReader : MonoBehaviour
         if (outDictionary.Count() != 0)    // if the mob name was correct
         {
             outDictionary.TryGetValue(player, out prio);
-            Debug.Log("prio = " + prio);
+            //Debug.Log("prio = " + prio);
         }
         return prio;
     }

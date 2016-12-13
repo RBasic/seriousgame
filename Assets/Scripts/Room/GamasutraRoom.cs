@@ -851,7 +851,7 @@ public class GamasutraRoom : MonoBehaviour
         // make the enemy spawn if it's not already spawn
         if (state && listSpawn.Count != 0 && !alreadySpawn)
         {
-            Debug.Log("ici");
+            //Debug.Log("ici");
 
             if (isShopRoom)
                 makeShopSpawn();
@@ -876,7 +876,7 @@ public class GamasutraRoom : MonoBehaviour
     void makeEnemySpawn()
     {
         int nbEnemy = Random.Range(1, listSpawn.Count); // at least one enemy
-        Debug.Log("nbenemy : "+nbEnemy);
+        //Debug.Log("nbenemy : "+nbEnemy);
         while (nbEnemy!=0)
         {
             int indexEnemy = Random.Range(0, listSpawn.Count);

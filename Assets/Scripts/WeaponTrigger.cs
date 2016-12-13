@@ -20,10 +20,10 @@ public class WeaponTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        Debug.Log("collide avec " + other);
+        //Debug.Log("collide avec " + other);
         if (other.tag == "Enemy")
         {
-            Debug.Log("1 : " + other);
+            //Debug.Log("1 : " + other);
             if (Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
                 Debug.Log("2 : " + other);

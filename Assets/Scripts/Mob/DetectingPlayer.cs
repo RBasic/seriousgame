@@ -67,7 +67,7 @@ public class DetectingPlayer : MonoBehaviour {
                 dialogues.Add(CSVReader.instance.getDialog(p.getEthnieString(), "boss", p.getGender()));
             }
             int rand = Random.Range(0, dialogues.Count);
-            Debug.Log("je dis = " + dialogues[rand]);
+            //Debug.Log("je dis = " + dialogues[rand]);
             textShowed.text = dialogues[rand];
         }
     }

@@ -26,12 +26,17 @@ public class Marchand : MonoBehaviour {
 	
 	}
 
-    void load()
+    public void load()
     {
         string path = "marchand/";
         path += GameManager.instance.getPlayer().getEthnie().ToString();
+        Debug.Log("PATH SPRITE MARCHAND: " + path);
         spriteSmall.sprite = Resources.Load(path+"/small") as Sprite;
         spriteMedium.sprite = Resources.Load(path+"/medium") as Sprite;
         spriteBig.sprite = Resources.Load(path+"/big") as Sprite;
     }
+
+    public Image getSpriteSmall() { return spriteSmall; }
+    public Image getSpriteMedium() { return spriteMedium; }
+    public Image getSpriteBig() { return spriteBig; }
 }

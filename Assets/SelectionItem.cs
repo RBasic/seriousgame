@@ -17,28 +17,34 @@ public class SelectionItem : MonoBehaviour
     [SerializeField]
     private Text textHeal;
 
-    private GameObject feedbackSmall;
-    private GameObject feedbackMedium;
-    private GameObject feedbackBig;
+    private GameObject instanceMarchand;
 
-    private float smallPrice = 10f;
-    private float mediumPrice = 25f;
-    private float bigPrice = 50f;
+    private Image feedbackSmall;
+    private Image feedbackMedium;
+    private Image feedbackBig;
 
-    private float smallHeal = 5f;
-    private float mediumHeal = 10f;
-    private float bigHeal = 25f;
+    private int smallPrice = 10;
+    private int mediumPrice = 25;
+    private int bigPrice = 50;
+
+    private int smallHeal = 5;
+    private int mediumHeal = 10;
+    private int bigHeal = 25;
 
     // Use this for initialization
     void Start()
     {
-        feedbackSmall = selectionSmall.transform.FindChild("Image").gameObject;
-        feedbackMedium = selectionMedium.transform.FindChild("Image").gameObject;
-        feedbackBig = selectionBig.transform.FindChild("Image").gameObject;
+        feedbackSmall = selectionSmall.transform.FindChild("Background").GetChild(0).GetComponent<Image>();
+        feedbackMedium = selectionMedium.transform.FindChild("Background").GetChild(0).GetComponent<Image>();
+        feedbackBig = selectionBig.transform.FindChild("Background").GetChild(0).GetComponent<Image>();
 
-        feedbackSmall.SetActive(true);
-        feedbackMedium.SetActive(false);
-        feedbackBig.SetActive(false);
+        selectionSmall.transform.FindChild("Image").gameObject.SetActive(false);
+        selectionMedium.transform.FindChild("Image").gameObject.SetActive(false);
+        selectionBig.transform.FindChild("Image").gameObject.SetActive(false);
+
+        feedbackSmall.enabled = true;
+        feedbackMedium.enabled = false;
+        feedbackBig.enabled = false;
 
         textPrice.text = smallPrice.ToString();
         textHeal.text = smallHeal.ToString();
@@ -50,25 +56,28 @@ public class SelectionItem : MonoBehaviour
         Debug.Log("test update slot shop");
         if (GameManager.instance.getPanelMarchand().activeSelf)
         {
-            Debug.Log("SHOP LIST SALUT");
+            instanceMarchand = GameManager.instance.getInstanceMarchand();
+            Debug.Log(instanceMarchand);
+            //Debug.Log(instanceMarchand.GetComponent<Marchand>().getSpriteSmall());
+            //selectionSmall.transform.GetComponentInChildren<Image>().sprite = instanceMarchand.GetComponent<Marchand>().getSpriteSmall().sprite;
+            
             if (Input.GetKeyDown(KeyCode.D))
             {
-                Debug.Log("CHOISIR ITEM");
-                if (feedbackSmall.activeSelf)
+                if (feedbackSmall.enabled)
                 {
-                    feedbackSmall.SetActive(false);
-                    feedbackMedium.SetActive(true);
-                    feedbackBig.SetActive(false);
+                    feedbackSmall.enabled = false;
+                    feedbackMedium.enabled = true;
+                    feedbackBig.enabled = false;
 
                     textPrice.text = mediumPrice.ToString();
                     textHeal.text = mediumHeal.ToString();
                 }
 
-                else if (feedbackMedium.activeSelf)
+                else if (feedbackMedium.enabled)
                 {
-                    feedbackSmall.SetActive(false);
-                    feedbackMedium.SetActive(false);
-                    feedbackBig.SetActive(true);
+                    feedbackSmall.enabled = false;
+                    feedbackMedium.enabled = false;
+                    feedbackBig.enabled = true;
 
                     textPrice.text = bigPrice.ToString();
                     textHeal.text = bigHeal.ToString();
@@ -77,28 +86,43 @@ public class SelectionItem : MonoBehaviour
 
             else if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (feedbackMedium.activeSelf)
+                if (feedbackMedium.enabled)
                 {
-                    Debug.Log("Medium vers droite");
-                    feedbackSmall.SetActive(true);
-                    feedbackMedium.SetActive(false);
-                    feedbackBig.SetActive(false);
+                    feedbackSmall.enabled = true;
+                    feedbackMedium.enabled = false;
+                    feedbackBig.enabled = false;
 
                     textPrice.text = smallPrice.ToString();
                     textHeal.text = smallHeal.ToString();
                 }
 
-                else if (feedbackBig.activeSelf)
+                else if (feedbackBig.enabled)
                 {
-                    Debug.Log("Big vers droite");
-                    feedbackSmall.SetActive(false);
-                    feedbackMedium.SetActive(true);
-                    feedbackBig.SetActive(false);
+                    feedbackSmall.enabled = false;
+                    feedbackMedium.enabled = true;
+                    feedbackBig.enabled = false;
 
                     textPrice.text = mediumPrice.ToString();
                     textHeal.text = mediumHeal.ToString();
                 }
             }
+
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (feedbackSmall.enabled && GameManager.instance.getMoney() >= smallPrice)
+                    BuyItem(smallPrice, smallHeal);
+                else if (feedbackMedium.enabled && GameManager.instance.getMoney() >= mediumPrice)
+                    BuyItem(mediumPrice, mediumHeal);
+                else if (feedbackBig.enabled && GameManager.instance.getMoney() >= bigPrice)
+                    BuyItem(bigPrice, bigHeal);
+                    
+            }
         }
+    }
+
+    void BuyItem(int vPrice, int vHeal)
+    {
+        Debug.Log("PRIX: " + vPrice);
+        GameManager.instance.setMoney(vPrice);
     }
 }

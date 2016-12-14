@@ -38,9 +38,9 @@ public class SelectionItem : MonoBehaviour
         feedbackMedium = selectionMedium.transform.FindChild("Background").GetChild(0).GetComponent<Image>();
         feedbackBig = selectionBig.transform.FindChild("Background").GetChild(0).GetComponent<Image>();
 
-        selectionSmall.transform.FindChild("Image").gameObject.SetActive(false);
-        selectionMedium.transform.FindChild("Image").gameObject.SetActive(false);
-        selectionBig.transform.FindChild("Image").gameObject.SetActive(false);
+        //selectionSmall.transform.FindChild("Image").gameObject.SetActive(false);
+        //selectionMedium.transform.FindChild("Image").gameObject.SetActive(false);
+        //selectionBig.transform.FindChild("Image").gameObject.SetActive(false);
 
         feedbackSmall.enabled = true;
         feedbackMedium.enabled = false;

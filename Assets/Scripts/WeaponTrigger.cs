@@ -30,14 +30,23 @@ public class WeaponTrigger : MonoBehaviour
                 int nb = 10;
                 if (!GameManager.instance.getPlayer().getGender())
                 {
-                    nb = 8;
+                    nb -= 2;
                 }
-                else if (GameManager.instance.getPlayer().getEthnie().ToString() == "arab")
+                if (GameManager.instance.getPlayer().getEthnie().ToString() == "arab")
                 {
-                    nb = 12;
+                    nb += 2;
                 }
                 Instantiate(coin, other.transform.position, other.transform.rotation);
-                Destroy(other.gameObject.transform.parent.gameObject);
+                //Destroy(other.gameObject.transform.parent.gameObject);
+
+                Transform[] transforms = other.gameObject.transform.parent.GetComponentsInChildren<Transform>();
+                foreach ( Transform t in transforms)
+                {
+                    if (t.name == "enemyVision")
+                    {
+                        t.gameObject.GetComponent<DetectingPlayer>().SwapAnimators();
+                    }
+                }
             }
         }
     }

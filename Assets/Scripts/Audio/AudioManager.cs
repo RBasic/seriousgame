@@ -14,6 +14,10 @@ public class AudioManager : MonoBehaviour {
     public string themeAfrica = "event:/Serious Game/Music/ThemeAfrica";
     public string themeArabic = "event:/Serious Game/Music/ThemeArabic";
     public string themeBoss = "event:/Serious Game/Music/Boss";
+    public string play = "event:/Serious Game/FX/Play";
+    public string select = "event:/Serious Game/FX/Selection";
+    public string nomoney = "event:/Serious Game/FX/NoMoney";
+
 
     public string paused = "snapshot:/Pause";
     public string lowReverb = "snapshot:/LowReverb";
@@ -29,6 +33,11 @@ public class AudioManager : MonoBehaviour {
     FMOD.Studio.EventInstance africa;
     FMOD.Studio.EventInstance asian;
     FMOD.Studio.EventInstance boss;
+
+
+    public FMOD.Studio.EventInstance playsound;
+    public FMOD.Studio.EventInstance selectsound;
+    public FMOD.Studio.EventInstance nomoneysound;
 
     FMOD.Studio.EventInstance p;
     FMOD.Studio.EventInstance lr;
@@ -67,6 +76,11 @@ public class AudioManager : MonoBehaviour {
         lr = FMODUnity.RuntimeManager.CreateInstance(lowReverb);
         mr = FMODUnity.RuntimeManager.CreateInstance(midReverb);
         hr = FMODUnity.RuntimeManager.CreateInstance(highReverb);
+
+
+        playsound = FMODUnity.RuntimeManager.CreateInstance(play);
+        selectsound = FMODUnity.RuntimeManager.CreateInstance(select);
+        nomoneysound = FMODUnity.RuntimeManager.CreateInstance(nomoney);
 
 
     }

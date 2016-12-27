@@ -63,6 +63,7 @@ public class SelectionItem : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.S))
             {
+                GameManager.instance.getAudioManager().selectsound.start();
                 if (feedbackSmall.enabled)
                 {
                     feedbackSmall.enabled = false;
@@ -86,6 +87,7 @@ public class SelectionItem : MonoBehaviour
 
             else if (Input.GetKeyDown(KeyCode.Z))
             {
+                GameManager.instance.getAudioManager().selectsound.start();
                 if (feedbackMedium.enabled)
                 {
                     feedbackSmall.enabled = true;
@@ -115,7 +117,8 @@ public class SelectionItem : MonoBehaviour
                     BuyItem(mediumPrice, mediumHeal);
                 else if (feedbackBig.enabled && GameManager.instance.getMoney() >= bigPrice)
                     BuyItem(bigPrice, bigHeal);
-                    
+                else
+                    GameManager.instance.getAudioManager().nomoneysound.start();
             }
         }
     }

@@ -18,6 +18,7 @@ public class selection : MonoBehaviour {
 	void Update () {
         if ((Input.GetKeyDown(KeyCode.S)) || (Input.GetKeyDown(KeyCode.DownArrow)))
         {
+            GameManager.instance.getAudioManager().selectsound.start();
             if (onPlay)
             {
                 play.GetComponent<Image>().enabled = false;
@@ -42,6 +43,7 @@ public class selection : MonoBehaviour {
         }
         if ((Input.GetKeyDown(KeyCode.Z)) || (Input.GetKeyDown(KeyCode.UpArrow)))
         {
+            GameManager.instance.getAudioManager().selectsound.start();
             if (onPlay)
             {
                 play.GetComponent<Image>().enabled = false;

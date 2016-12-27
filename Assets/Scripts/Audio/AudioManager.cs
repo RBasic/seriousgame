@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour {
     public string midReverb = "snapshot:/MidReverb";
     public string highReverb = "snapshot:/HighReverb";
 
+    public static FMOD.Studio.Bus MusicBus;
+    public static FMOD.Studio.Bus SFXBus;
 
     FMOD.Studio.EventInstance menu;
     FMOD.Studio.EventInstance white;
@@ -51,7 +53,10 @@ public class AudioManager : MonoBehaviour {
     }
 
 	void Start ()
-    {
+	{
+	    MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/General/Music");
+	    SFXBus = FMODUnity.RuntimeManager.GetBus("bus:/General/FX");
+
         menu = FMODUnity.RuntimeManager.CreateInstance(menuTheme);
         africa = FMODUnity.RuntimeManager.CreateInstance(themeAfrica);
         asian = FMODUnity.RuntimeManager.CreateInstance(themeAsian);
@@ -228,4 +233,16 @@ public class AudioManager : MonoBehaviour {
             hr.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
+
+    public void changeMusicVolume(float vol)
+    {
+        MusicBus.setFaderLevel(vol);
+    }
+
+    public void changeSFXVolume(float vol)
+    {
+        SFXBus.setFaderLevel(vol);
+    }
+
+
 }

@@ -37,7 +37,7 @@
             <value>cutoff</value>
         </property>
         <property name="value">
-            <value>380</value>
+            <value>700</value>
         </property>
         <relationship name="automatableObject">
             <destination>{5e226bb9-011d-4be1-a139-914684a02159}</destination>
@@ -48,7 +48,7 @@
             <value>volume</value>
         </property>
         <property name="value">
-            <value>-11.8000002</value>
+            <value>-26</value>
         </property>
         <relationship name="automatableObject">
             <destination>{d3ebe11b-979f-411b-961c-9ea361c8e8d1}</destination>

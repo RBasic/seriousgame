@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class HealthPlayer : MonoBehaviour
 {
-
-    public GameObject origin;
+    public GameObject lifeGrid;
     public GameObject heartPrefab;
     private int lifePoints = 5;
     private GameObject[] hearts;
@@ -28,12 +27,15 @@ public class HealthPlayer : MonoBehaviour
     {
         if (lifePoints - 1 > 0)
         {
-            Destroy(transform.GetChild(lifePoints).gameObject);
+            Debug.Log(lifeGrid.GetComponent<Transform>().childCount+" "+lifePoints);
+            Destroy(lifeGrid.transform.GetChild(lifePoints-1).gameObject);
             lifePoints--;
         }
 
         else
         {
+            Destroy(lifeGrid.transform.GetChild(lifePoints - 1).gameObject);
+            lifePoints--;
             GameManager.instance.getPlayer().dead();
             GameManager.instance.getPanelLife().GetComponent<HealthPlayer>().gainLifePoint(5);
             GameManager.instance.getPanelLife().SetActive(false);
@@ -51,10 +53,8 @@ public class HealthPlayer : MonoBehaviour
 
         for (int i = 1; i < nbHearts + 1; i++)
         {
-            Vector3 pos = origin.transform.position;
-            pos.x += lifePoints * 20;
-            GameObject go = (GameObject)Instantiate(heartPrefab, pos, origin.transform.rotation);
-            go.transform.SetParent(transform);
+            GameObject newHeart = (GameObject)Instantiate(heartPrefab);
+            newHeart.transform.SetParent(lifeGrid.transform);
             lifePoints++;
         }
     }
@@ -70,10 +70,8 @@ public class HealthPlayer : MonoBehaviour
 
         for (int i = 0; i < lifePoints; i++)
         {
-            Vector3 pos = origin.transform.position;
-            pos.x += i * 20;
-            GameObject go = (GameObject)Instantiate(heartPrefab, pos, origin.transform.rotation);
-            go.transform.SetParent(transform);
+            GameObject newHeart = (GameObject)Instantiate(heartPrefab);
+            newHeart.transform.SetParent(lifeGrid.transform);
         }
     }
 }

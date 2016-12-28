@@ -18,7 +18,6 @@ public class PlayerMove : MonoBehaviour
 
     Animator anim;
     private bool isShopping = false;
-    private GameObject shop;
 
     [FMODUnity.EventRef]
 
@@ -114,15 +113,8 @@ public class PlayerMove : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.B))
         {
-            if (shop == null)
-            {
-                shop = GameManager.instance.getInstanceMarchand();
-                //marchandWelcome();
 
-                // Debug.Log("Shop instancié");
-            }
-
-            if (this.gameObject.GetComponent<BoxCollider2D>().bounds.Intersects(shop.GetComponent<BoxCollider2D>().bounds))
+            if ((GameManager.instance.getInstanceMarchand()!=null)&&(this.gameObject.GetComponent<BoxCollider2D>().bounds.Intersects(GameManager.instance.getInstanceMarchand().GetComponent<BoxCollider2D>().bounds)))
             {
                 this.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 //Debug.Log("MARCHAND ICI , " + Vector2.Distance(this.transform.position, shop.transform.localPosition));

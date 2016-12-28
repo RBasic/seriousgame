@@ -23,7 +23,6 @@ public class FXPlayer : MonoBehaviour {
     FMOD.Studio.EventInstance j;
     FMOD.Studio.EventInstance d;
     FMOD.Studio.EventInstance a;
-    FMOD.Studio.EventInstance m;
 
     // Use this for initialization
     void Start () {
@@ -39,7 +38,6 @@ public class FXPlayer : MonoBehaviour {
 
         a = FMODUnity.RuntimeManager.CreateInstance(attack);
 
-        m = FMODUnity.RuntimeManager.CreateInstance(money);
 
         Anim = GameObject.Find("body").GetComponent<Animator>();
 
@@ -85,8 +83,7 @@ public class FXPlayer : MonoBehaviour {
         a.start();
     }
 
-    public void Money()
-    {
-        m.start();
-    }
+  
+
+ 
 }

@@ -4,6 +4,14 @@ using System.Collections;
 
 public class SelectionItem : MonoBehaviour
 {
+    [FMODUnity.EventRef]
+
+    public string eating = "event:/Serious Game/FX/Eating";
+    public string thanks = "event:/Serious Game/FX/Thanks";
+
+    FMOD.Studio.EventInstance e;
+    FMOD.Studio.EventInstance t;
+
 
     [SerializeField]
     private GameObject selectionSmall;
@@ -48,6 +56,10 @@ public class SelectionItem : MonoBehaviour
 
         textPrice.text = smallPrice.ToString();
         textHeal.text = smallHeal.ToString();
+
+        e = FMODUnity.RuntimeManager.CreateInstance(eating);
+        t = FMODUnity.RuntimeManager.CreateInstance(thanks);
+
     }
 
     // Update is called once per frame
@@ -125,7 +137,19 @@ public class SelectionItem : MonoBehaviour
 
     void BuyItem(int vPrice, int vHeal)
     {
+        Eating();
         GameManager.instance.setMoney(vPrice);
         GameManager.instance.getPanelLife().GetComponent<HealthPlayer>().gainLifePoint(vHeal);
+        Thanks();
+    }
+
+    public void Eating()
+    {
+        e.start();
+    }
+
+    public void Thanks()
+    {
+        t.start();
     }
 }

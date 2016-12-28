@@ -3,6 +3,20 @@ using System.Collections;
 
 public class MoneyTrigger : MonoBehaviour {
 
+    [FMODUnity.EventRef]
+
+    public string money = "event:/Serious Game/FX/Money";
+    FMOD.Studio.EventInstance m;
+
+    void Start()
+    {
+
+        m = FMODUnity.RuntimeManager.CreateInstance(money);
+    }
+    public void Money()
+    {
+        m.start();
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
@@ -16,6 +30,7 @@ public class MoneyTrigger : MonoBehaviour {
             {
                 nb = 12;
             }
+            Money();
             GameManager.instance.addCoin(nb);
             Destroy(this.gameObject);
         }

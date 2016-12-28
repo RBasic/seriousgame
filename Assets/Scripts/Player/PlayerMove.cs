@@ -20,9 +20,18 @@ public class PlayerMove : MonoBehaviour
     private bool isShopping = false;
     private GameObject shop;
 
+    [FMODUnity.EventRef]
+
+    public string welcome = "event:/Serious Game/FX/Welcome";
+    FMOD.Studio.EventInstance w;
+
+
+
     void Start()
     {
         anim  = GetComponentInChildren<Animator>();
+        w = FMODUnity.RuntimeManager.CreateInstance(welcome);
+
     }
 
     void FixedUpdate()
@@ -108,18 +117,22 @@ public class PlayerMove : MonoBehaviour
             if (shop == null)
             {
                 shop = GameManager.instance.getInstanceMarchand();
-                Debug.Log("Shop instancié");
+                //marchandWelcome();
+
+                // Debug.Log("Shop instancié");
             }
 
             if (this.gameObject.GetComponent<BoxCollider2D>().bounds.Intersects(shop.GetComponent<BoxCollider2D>().bounds))
             {
                 this.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                Debug.Log("MARCHAND ICI , " + Vector2.Distance(this.transform.position, shop.transform.localPosition));
-                Debug.Log("Player: " + this.transform.position + " " + this.transform.localPosition + " , Marchand: " + shop.transform.position + " " + shop.transform.localPosition);
+                //Debug.Log("MARCHAND ICI , " + Vector2.Distance(this.transform.position, shop.transform.localPosition));
+                //Debug.Log("Player: " + this.transform.position + " " + this.transform.localPosition + " , Marchand: " + shop.transform.position + " " + shop.transform.localPosition);
 
                 if (!isShopping)
                 {
                     GameManager.instance.getPanelMarchand().SetActive(true);
+                    marchandWelcome();
+
                     isShopping = true;
                 }
 
@@ -165,5 +178,10 @@ public class PlayerMove : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -jumpForce), ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.3f);
         col.enabled = true;
+    }
+
+    public void marchandWelcome()
+    {
+        w.start();
     }
 }

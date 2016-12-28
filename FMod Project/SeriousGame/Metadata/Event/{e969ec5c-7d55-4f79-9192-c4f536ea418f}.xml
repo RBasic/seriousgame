@@ -53,7 +53,7 @@
             <destination>{6044659c-d9c5-419b-b031-582954d0dc54}</destination>
         </relationship>
         <relationship name="output">
-            <destination>{3e74946a-2a6e-4077-8676-e854e5b0bd9a}</destination>
+            <destination>{002e14f9-e084-4e8d-8247-37c928ae9a36}</destination>
         </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{7f1e56ee-af1b-410b-9b68-4ed0913085ad}"/>
@@ -115,6 +115,7 @@
     </object>
     <object class="MixerBusEffectChain" id="{ba628e3e-bdde-4145-98e5-5c0d3eb398cf}">
         <relationship name="effects">
+            <destination>{07c973e2-4870-4280-97a9-a202308fbf0e}</destination>
             <destination>{fcc6e993-d713-4ed8-af3c-680417f607cd}</destination>
             <destination>{97d55815-b743-46bb-b8db-8df7a3473765}</destination>
         </relationship>
@@ -127,7 +128,31 @@
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{00fb3640-8a6e-4e57-ae2d-dfcc81660dc9}"/>
+    <object class="PluginEffect" id="{07c973e2-4870-4280-97a9-a202308fbf0e}">
+        <relationship name="plugin">
+            <destination>{615119fe-db52-44a5-9c87-6959a0656a1a}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusFader" id="{fcc6e993-d713-4ed8-af3c-680417f607cd}"/>
     <object class="SpatialiserEffect" id="{97d55815-b743-46bb-b8db-8df7a3473765}"/>
     <object class="MixerBusFader" id="{da71bd39-5a7c-465a-9281-71460e9010a6}"/>
+    <object class="Plugin" id="{615119fe-db52-44a5-9c87-6959a0656a1a}">
+        <property name="identifier">
+            <value>FMOD Lowpass Simple</value>
+        </property>
+        <relationship name="pluginParameters">
+            <destination>{9227596a-c7be-4e64-87c2-75d96e16136d}</destination>
+        </relationship>
+    </object>
+    <object class="FloatPluginParameter" id="{9227596a-c7be-4e64-87c2-75d96e16136d}">
+        <property name="name">
+            <value>Cutoff freq</value>
+        </property>
+        <property name="curve">
+            <value>LinearPiecewiseCurveStrategy{(0.000000,10.000000)(1.000000,100.000000)(2.000000,400.000000)(3.000000,750.000000)(4.000000,1250.000000)(5.000000,2000.000000)(6.000000,3200.000000)(7.000000,5500.000000)(8.000000,10000.000000)(9.000000,18000.000000)(10.000000,22000.000000)}</value>
+        </property>
+        <property name="value">
+            <value>9500</value>
+        </property>
+    </object>
 </objects>

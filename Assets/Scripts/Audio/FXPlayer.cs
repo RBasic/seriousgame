@@ -10,6 +10,7 @@ public class FXPlayer : MonoBehaviour {
     public string jump = "event:/Serious Game/FX/Jump";
     public string down = "event:/Serious Game/FX/Down";
     public string attack = "event:/Serious Game/FX/Attack";
+    public string money = "event:/Serious Game/FX/Money";
 
     private Animator Anim;
     private bool ground;
@@ -22,6 +23,7 @@ public class FXPlayer : MonoBehaviour {
     FMOD.Studio.EventInstance j;
     FMOD.Studio.EventInstance d;
     FMOD.Studio.EventInstance a;
+    FMOD.Studio.EventInstance m;
 
     // Use this for initialization
     void Start () {
@@ -36,6 +38,8 @@ public class FXPlayer : MonoBehaviour {
         d.setParameterValue("Poids", poids);
 
         a = FMODUnity.RuntimeManager.CreateInstance(attack);
+
+        m = FMODUnity.RuntimeManager.CreateInstance(money);
 
         Anim = GameObject.Find("body").GetComponent<Animator>();
 
@@ -79,5 +83,10 @@ public class FXPlayer : MonoBehaviour {
     public void Attack()
     {
         a.start();
+    }
+
+    public void Money()
+    {
+        m.start();
     }
 }

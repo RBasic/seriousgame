@@ -34,6 +34,9 @@ public class DetectingPlayer : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            enemy.GetComponent<EnemyPathing>().setChasingPlayer(true);
+            enemy.GetComponent<EnemyPathing>().setPathing(false);
+
             if (!once && enemy.transform.FindChild("body").gameObject.activeInHierarchy == true)
             {
                 dialogues.Clear();
@@ -96,7 +99,5 @@ public class DetectingPlayer : MonoBehaviour
     {
         enemy.transform.FindChild("body").gameObject.SetActive(!enemy.transform.FindChild("body").gameObject.activeInHierarchy);
         enemy.transform.FindChild("bodyT").gameObject.SetActive(!enemy.transform.FindChild("bodyT").gameObject.activeInHierarchy);
-        enemy.GetComponent<EnemyPathing>().setChasingPlayer(enemy.GetComponent<EnemyPathing>().getChasingPlayer());
-        enemy.GetComponent<EnemyPathing>().setPathing(!enemy.GetComponent<EnemyPathing>().getPathing());
     }
 }

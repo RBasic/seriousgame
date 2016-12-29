@@ -73,6 +73,8 @@ public class WeaponTrigger : MonoBehaviour
                     if (t.name == "enemyVision")
                     {
                         t.gameObject.GetComponent<DetectingPlayer>().SwapAnimators();
+                        t.gameObject.GetComponent<DetectingPlayer>().displayPositiveDialogue();
+                        t.gameObject.GetComponent<FXEnemy>().PlayImpact();
                     }
                 }
             }

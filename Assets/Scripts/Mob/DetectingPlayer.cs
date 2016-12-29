@@ -73,6 +73,7 @@ public class DetectingPlayer : MonoBehaviour
             }
             else
             {
+                dialogues.Clear();
                 int rand = Random.Range(0, dialogues.Count);
                 dialogues.Add(CSVReader.instance.getDialog("Blanc", "boss", true));
                 textShowed.text = dialogues[rand];
@@ -89,6 +90,16 @@ public class DetectingPlayer : MonoBehaviour
             enemy.GetComponent<EnemyPathing>().startSpeedBoostCoroutine();
             //enemy.GetComponent<EnemyPathing>().setChasingPlayer(false);
         }
+    }
+
+    public void displayPositiveDialogue()
+    {
+        dialogues.Clear();
+        int rand = Random.Range(0, dialogues.Count);
+        Debug.Log("ICIIIIIIIIIIIIIIIIIIIIII     " + rand);
+        dialogues.Add(CSVReader.instance.getDialog("Blanc", "boss", true));
+        textShowed.text = dialogues[rand];
+        //dialogue positif        
     }
 
     public void SwapAnimators()

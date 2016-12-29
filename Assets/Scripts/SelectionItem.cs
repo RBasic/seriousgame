@@ -31,9 +31,9 @@ public class SelectionItem : MonoBehaviour
     private Image feedbackMedium;
     private Image feedbackBig;
 
-    private int smallPrice = 10;
+    private int smallPrice = 15;
     private int mediumPrice = 25;
-    private int bigPrice = 50;
+    private int bigPrice = 35;
 
     private int smallHeal = 1;
     private int mediumHeal = 2;
@@ -95,6 +95,17 @@ public class SelectionItem : MonoBehaviour
                     textPrice.text = bigPrice.ToString();
                     textHeal.text = bigHeal.ToString();
                 }
+
+                else
+                {
+                    feedbackSmall.enabled = true;
+                    feedbackMedium.enabled = false;
+                    feedbackBig.enabled = false;
+
+                    textPrice.text = smallPrice.ToString();
+                    textHeal.text = smallHeal.ToString();
+
+                }
             }
 
             else if (Input.GetKeyDown(KeyCode.Z))
@@ -119,15 +130,26 @@ public class SelectionItem : MonoBehaviour
                     textPrice.text = mediumPrice.ToString();
                     textHeal.text = mediumHeal.ToString();
                 }
+
+                else
+                {
+                    feedbackSmall.enabled = false;
+                    feedbackMedium.enabled = false;
+                    feedbackBig.enabled = true;
+
+                    textPrice.text = bigPrice.ToString();
+                    textHeal.text = bigHeal.ToString();
+
+                }
             }
 
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                if (feedbackSmall.enabled && GameManager.instance.getMoney() >= smallPrice)
+                if (feedbackSmall.enabled && GameManager.instance.getMoney() >= smallPrice && GameManager.instance.getPanelLife().GetComponent<HealthPlayer>().getLifePoints() < 5)
                     BuyItem(smallPrice, smallHeal);
-                else if (feedbackMedium.enabled && GameManager.instance.getMoney() >= mediumPrice)
+                else if (feedbackMedium.enabled && GameManager.instance.getMoney() >= mediumPrice && GameManager.instance.getPanelLife().GetComponent<HealthPlayer>().getLifePoints() < 5)
                     BuyItem(mediumPrice, mediumHeal);
-                else if (feedbackBig.enabled && GameManager.instance.getMoney() >= bigPrice)
+                else if (feedbackBig.enabled && GameManager.instance.getMoney() >= bigPrice && GameManager.instance.getPanelLife().GetComponent<HealthPlayer>().getLifePoints() < 5)
                     BuyItem(bigPrice, bigHeal);
                 else
                     GameManager.instance.getAudioManager().nomoneysound.start();

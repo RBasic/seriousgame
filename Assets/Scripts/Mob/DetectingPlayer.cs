@@ -71,15 +71,6 @@ public class DetectingPlayer : MonoBehaviour
                 textShowed.text = dialogues[rand];
                 once = true;
             }
-            else
-            {
-                dialogues.Clear();
-                int rand = Random.Range(0, dialogues.Count);
-                dialogues.Add(CSVReader.instance.getDialog("Blanc", "boss", true));
-                textShowed.text = dialogues[rand];
-                //dialogue positif
-            }
-
         }
     }
 
@@ -96,7 +87,6 @@ public class DetectingPlayer : MonoBehaviour
     {
         dialogues.Clear();
         int rand = Random.Range(0, dialogues.Count);
-        Debug.Log("ICIIIIIIIIIIIIIIIIIIIIII     " + rand);
         dialogues.Add(CSVReader.instance.getDialog("Blanc", "boss", true));
         textShowed.text = dialogues[rand];
         //dialogue positif        

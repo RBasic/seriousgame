@@ -17,7 +17,7 @@ public class FXPlayer : MonoBehaviour {
     private bool downing = false;
 
 
-    public float poids;
+    private float poids;
     FMOD.Studio.EventInstance fs1;
     FMOD.Studio.EventInstance fs2;
     FMOD.Studio.EventInstance j;
@@ -25,7 +25,24 @@ public class FXPlayer : MonoBehaviour {
     FMOD.Studio.EventInstance a;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        string s = GameManager.instance.getPlayer().getBodyString();
+
+        if (s == "Mince")
+        {
+            poids = 1.0f;
+        }
+        else if (s == "Moyen" || s == "Moyenne")
+        {
+            poids = 0.5f;
+        }
+        else if (s == "Gros" || s == "Grosse")
+        {
+            poids = 0.0f;
+        }
+
+        Debug.Log("Poids " + poids);
 
         fs1 = FMODUnity.RuntimeManager.CreateInstance(footStep1);
         fs1.setParameterValue("Poids", poids);

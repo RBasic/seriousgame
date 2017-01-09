@@ -53,14 +53,15 @@ public class UIPlayer : MonoBehaviour {
         c = white;  // basic color
         if (UIcurrentPlayer)
         {
-            changeUI(GameManager.instance.getPlayer().getGender(), GameManager.instance.getPlayer().getEthnie());
+            changeUI(GameManager.instance.getPlayer().getGender(), GameManager.instance.getPlayer().getEthnie(),true);
         }
 	}
 
+  
     /*
     *@brief : update the ui of the Player
     */
-    public void changeUI(bool sexuality, Player.ethnie e)
+    public void changeUI(bool sexuality, Player.ethnie e, bool isCurrent)
     {
         resetUI();
       
@@ -71,8 +72,9 @@ public class UIPlayer : MonoBehaviour {
             this.legM.gameObject.SetActive(true);
             this.hairM.gameObject.SetActive(true);
             this.bodyM.gameObject.SetActive(true);
-            if (GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>() != null)
+            if (isCurrent && GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>() != null)
             {
+                Debug.Log("coucou");
                 GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>().changeChest(bodyM.GetComponent<Image>().sprite);
                 GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>().changeHair(hairM.GetComponent<Image>().sprite);
                 GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>().changeHead(headM.GetComponent<Image>().sprite);
@@ -85,8 +87,9 @@ public class UIPlayer : MonoBehaviour {
             this.legW.gameObject.SetActive(true);
             this.hairW.gameObject.SetActive(true);
             this.bodyW.gameObject.SetActive(true);
-            if (GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>() != null)
+            if (isCurrent && GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>() != null)
             {
+                Debug.Log("coucou");
                 GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>().changeChest(bodyW.GetComponent<Image>().sprite);
                 GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>().changeHair(hairW.GetComponent<Image>().sprite);
                 GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>().changeHead(headW.GetComponent<Image>().sprite);
@@ -94,7 +97,7 @@ public class UIPlayer : MonoBehaviour {
         }
 
         // change on the player
-        if (GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>() != null)
+        if (isCurrent && GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>() != null)
         {
             GameManager.instance.getPlayerGameObject().GetComponent<SkinPlayer>().changeSkinColor(c);
         }

@@ -50,7 +50,7 @@ public class ListItem : ListItemBase
         itemSexualityText.text = data.itemSexualityString;
 
 
-        playerUIList.GetComponentInChildren<UIPlayer>().changeUI(data.itemGender, data.itemEthnie);
+        playerUIList.GetComponentInChildren<UIPlayer>().changeUI(data.itemGender, data.itemEthnie, false);
         
 
 

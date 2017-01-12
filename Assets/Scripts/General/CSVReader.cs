@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 public class CSVReader : MonoBehaviour
 {
@@ -21,8 +22,8 @@ public class CSVReader : MonoBehaviour
     */
     public void loadCSV()
     {
-     
-        string fileData = System.IO.File.ReadAllText("Assets\\dialogues.csv");
+		string fileData = (Resources.Load("dialogues") as TextAsset).text;
+		Debug.Log ("filedata = " + fileData);
         string[] lines = fileData.Split("\n"[0]);                   // all the line separatly
 
         /*the first line is the mob name*/

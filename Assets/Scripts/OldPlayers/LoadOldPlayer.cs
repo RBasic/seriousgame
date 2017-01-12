@@ -110,7 +110,7 @@ public class LoadOldPlayer : MonoBehaviour
     */
     private void loadFile()
     {
-        string fileData = System.IO.File.ReadAllText("Assets\\oldPlayers.txt");
+		string fileData = (Resources.Load("oldPlayers") as TextAsset).text;
         //linesFile = fileData.Split("\n"[0]);                   // all the line separatly
     }
 
